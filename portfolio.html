@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Your Name</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+
+    :root {
+      --primary-color: #4a90e2;
+      --bg-color: #f4f6f8;
+      --text-color: #2e2e2e;
+      --accent-color: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 10%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-color);
+    }
+
+    section {
+      padding: 4rem 10%;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card .info {
+      padding: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #ffffff;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 2rem 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">YourName</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>My Work</h2>
+    <div class="projects">
+
+      <!-- Project 1 -->
+      <a href="#" class="project-card">
+        <img src="https://via.placeholder.com/400x180" alt="Project 1" />
+        <div class="info">
+          <h3>Mobile App Redesign</h3>
+          <p>Improved user flows and revamped UI for a social networking app.</p>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="#" class="project-card">
+        <img src="https://via.placeholder.com/400x180" alt="Project 2" />
+        <div class="info">
+          <h3>E-Commerce Dashboard</h3>
+          <p>Designed an intuitive admin dashboard with data-driven UX.</p>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="#" class="project-card">
+        <img src="https://via.placeholder.com/400x180" alt="Project 3" />
+        <div class="info">
+          <h3>Portfolio Website</h3>
+          <p>A responsive site to showcase creative work — just like this one.</p>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="#" class="project-card">
+        <img src="https://via.placeholder.com/400x180" alt="Project 4" />
+        <div class="info">
+          <h3>UX Case Study</h3>
+          <p>End-to-end UX design process for a nonprofit org's donation platform.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
