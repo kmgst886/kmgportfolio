@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Title | Your Name</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intercultural Blog Project | Your Name</title>
   <style>
-    /* Reusing some variables from the main style for consistency */
     :root {
-      --primary-color: #4a90e2; /* Assuming this is a key color */
-      --bg-color: #f4f6f8;     /* Assuming this is a light background */
-      --text-color: #2e2e2e;   /* Assuming this is the main text color */
-      --accent-color: #ff6b6b; /* Assuming this is a highlight color */
-      --project-bg: #ffffff;    /* A clean background for project sections */
-      --section-title: var(--primary-color); /* Using primary for section titles */
-      --process-step-bg: #e9ecef; /* A light grey for process steps */
+      --primary-color: #4a90e2;
+      --bg-color: #f4f6f8;
+      --text-color: #2e2e2e;
+      --accent-color: #ff6b6b;
+      --project-bg: #ffffff;
+      --section-title: var(--primary-color);
+      --process-step-bg: #e9ecef;
     }
 
     body {
       font-family: 'Outfit', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
       margin: 0;
       padding: 0;
     }
@@ -41,111 +39,120 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Intro Section */
-    .project-intro p {
-      margin-bottom: 1rem;
+    p {
+      line-height: 1.6;
     }
 
-    .project-intro .project-image {
+    .project-image img {
       width: 100%;
+      height: auto;
       border-radius: 4px;
       margin-bottom: 1.5rem;
-      /* Add styling for your project image here */
-      background-color: #ccc; /* Placeholder */
-      height: 200px; /* Placeholder height */
-      object-fit: cover; /* To make the image cover the area */
     }
 
-    /* Process Section */
-    .project-process .process-step {
+    .process-step {
       background-color: var(--process-step-bg);
       padding: 1.25rem;
       border-radius: 6px;
       margin-bottom: 1rem;
-      border-left: 5px solid var(--accent-color); /* Highlight the step */
+      border-left: 5px solid var(--accent-color);
     }
 
-    .project-process .process-step h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
-    }
-
-    .project-process .process-step p {
-      color: #555;
-    }
-
-    /* Final Iterations Section */
-    .project-iterations p {
-      margin-bottom: 1rem; /* Add some spacing above the grid */
-    }
-
-    .project-iterations .iteration-image {
-      width: calc(50% - 0.5rem); /* Two images side by side with some spacing */
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      /* Add styling for your iteration images here */
-      background-color: #ddd; /* Placeholder */
-      height: 150px; /* Placeholder height */
-      object-fit: cover;
-    }
-
-    .project-iterations .iteration-image:nth-child(odd) {
-      margin-right: 1rem;
-    }
-
-    .project-iterations .iteration-grid {
+    .iteration-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    .iteration-image {
+      flex: 1 1 calc(50% - 1rem);
+      background-color: #ddd;
+      height: 150px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .iteration-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .visit-section {
+      text-align: center;
+      margin-top: 3rem;
+      background-color: #e8f4ff;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .visit-section h2 {
+      border: none;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .visit-button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .visit-button:hover {
+      background-color: #357abd;
     }
   </style>
 </head>
 <body>
 
   <div class="container project-intro">
-    <h2>Project Title</h2>
+    <h2>Intercultural Blog Website</h2>
     <div class="project-image">
-      <img src="path/to/your/overview-image.jpg" alt="Project Overview">
+      <img src="path/to/your/blog-screenshot.jpg" alt="Blog Screenshot">
     </div>
-    <p>This project aimed to solve [problem statement] for [target audience]. The key objectives were to [list key objectives].</p>
-    <p>My role in this project was [your role], and I was responsible for [your responsibilities].</p>
+    <p>This blog website was created for a project in my Intercultural Communications class. The goal was to explore and share cultural insights and perspectives in a visually engaging and accessible way.</p>
+    <p>I designed the layout, constructed the structure from scratch, and incorporated modern web effects such as smooth scrolling, hover transitions, and responsive components. The goal was to reflect the values of communication, clarity, and diversity.</p>
   </div>
 
   <div class="container project-process">
-    <h2>The Process</h2>
+    <h2>Design & Development Process</h2>
+
     <div class="process-step">
-      <h3>Research & Discovery</h3>
-      <p>We began by conducting user research, including [mention research methods like interviews, surveys, etc.]. This helped us understand the users' needs and pain points related to [the problem].</p>
-    </div>
-    <div class="process-step">
-      <h3>Ideation & Wireframing</h3>
-      <p>Based on our research findings, we brainstormed various solutions and started sketching initial ideas. We then moved on to creating low-fidelity wireframes to structure the user flow and key elements of the interface.</p>
-    </div>
-    <div class="process-step">
-      <h3>Prototyping & Testing</h3>
-      <p>We developed interactive prototypes using [mention prototyping tools like Figma, Sketch, Adobe XD] to test our concepts with users. Feedback from these testing sessions was crucial in identifying areas for improvement.</p>
-    </div>
+      <h3>Planning & Research</h3>
+      <p>I analyzed cultural blog sites and studied best practices for readability, visual hierarchy, and inclusivity. I also defined content categories that reflect intercultural themes such as identity, language, and global issues.</p>
     </div>
 
+    <div class="process-step">
+      <h3>Layout & UX Design</h3>
+      <p>Using HTML and CSS, I built a clean, responsive layout with a focus on accessibility. Elements like featured post banners, category navigation, and article cards were designed for intuitive interaction.</p>
+    </div>
+
+    <div class="process-step">
+      <h3>Interactive Effects</h3>
+      <p>To enhance user experience, I incorporated scroll-based animations, hover effects, and a dynamic header using basic JavaScript. These effects added polish without compromising performance.</p>
+    </div>
+  </div>
+
   <div class="container project-iterations">
-    <h2>Final Iterations</h2>
-    <p>Based on the feedback and our design principles, we refined the user interface and user experience. Here are some of the final iterations:</p>
+    <h2>Design Iterations</h2>
+    <p>These images show early versions and final refinements of the layout, typography, and responsiveness:</p>
     <div class="iteration-grid">
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-1.jpg" alt="Final Iteration 1">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-2.jpg" alt="Final Iteration 2">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-3.jpg" alt="Final Iteration 3">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-4.jpg" alt="Final Iteration 4">
-      </div>
-      </div>
-    <p>The final design focused on [mention key aspects of the final design, e.g., usability, accessibility, aesthetics].</p>
+      <div class="iteration-image"><img src="path/to/layout-draft.jpg" alt="Layout Draft"></div>
+      <div class="iteration-image"><img src="path/to/final-layout.jpg" alt="Final Layout"></div>
+      <div class="iteration-image"><img src="path/to/animation-preview.jpg" alt="Animation Effects"></div>
+      <div class="iteration-image"><img src="path/to/mobile-view.jpg" alt="Mobile View"></div>
+    </div>
+  </div>
+
+  <div class="container visit-section">
+    <h2>Visit the Live Blog</h2>
+    <p>You can explore the full site and interact with the design live. Click below to view:</p>
+    <a class="visit-button" href="https://your-live-blog-link.com" target="_blank">Visit Blog</a>
   </div>
 
 </body>
