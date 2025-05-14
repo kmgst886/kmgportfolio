@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Title | Your Name</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product & Contract Book | Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reusing some variables from the main style for consistency */
     :root {
-      --primary-color: #4a90e2; /* Assuming this is a key color */
-      --bg-color: #f4f6f8;     /* Assuming this is a light background */
-      --text-color: #2e2e2e;   /* Assuming this is the main text color */
-      --accent-color: #ff6b6b; /* Assuming this is a highlight color */
-      --project-bg: #ffffff;    /* A clean background for project sections */
-      --section-title: var(--primary-color); /* Using primary for section titles */
-      --process-step-bg: #e9ecef; /* A light grey for process steps */
+      --primary-color: #4a90e2;
+      --bg-color: #f4f6f8;
+      --text-color: #2e2e2e;
+      --accent-color: #ff6b6b;
+      --project-bg: #ffffff;
+      --section-title: var(--primary-color);
+      --process-step-bg: #e9ecef;
     }
 
     body {
       font-family: 'Outfit', sans-serif;
+      margin: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #4a90e2, #3a78c2);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
 
     .container {
@@ -30,8 +46,9 @@
       margin: 2rem auto;
       padding: 2rem;
       background-color: var(--project-bg);
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.07);
+      animation: fadeIn 0.6s ease;
     }
 
     h2 {
@@ -41,111 +58,137 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Intro Section */
-    .project-intro p {
+    .project-image img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+    }
+
+    .project-intro p,
+    .contract-book p {
       margin-bottom: 1rem;
     }
 
-    .project-intro .project-image {
-      width: 100%;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      /* Add styling for your project image here */
-      background-color: #ccc; /* Placeholder */
-      height: 200px; /* Placeholder height */
-      object-fit: cover; /* To make the image cover the area */
-    }
-
-    /* Process Section */
-    .project-process .process-step {
+    .process-step {
       background-color: var(--process-step-bg);
       padding: 1.25rem;
       border-radius: 6px;
       margin-bottom: 1rem;
-      border-left: 5px solid var(--accent-color); /* Highlight the step */
+      border-left: 5px solid var(--accent-color);
+      transition: all 0.3s ease;
     }
 
-    .project-process .process-step h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
+    .process-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
     }
 
-    .project-process .process-step p {
-      color: #555;
-    }
-
-    /* Final Iterations Section */
-    .project-iterations p {
-      margin-bottom: 1rem; /* Add some spacing above the grid */
-    }
-
-    .project-iterations .iteration-image {
-      width: calc(50% - 0.5rem); /* Two images side by side with some spacing */
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      /* Add styling for your iteration images here */
-      background-color: #ddd; /* Placeholder */
-      height: 150px; /* Placeholder height */
-      object-fit: cover;
-    }
-
-    .project-iterations .iteration-image:nth-child(odd) {
-      margin-right: 1rem;
-    }
-
-    .project-iterations .iteration-grid {
+    .iteration-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    .iteration-image {
+      flex: 1 1 calc(50% - 1rem);
+      height: 160px;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+
+    .iteration-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contract-book {
+      background-color: #f0f9ff;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-left: 6px solid var(--primary-color);
+      border-radius: 8px;
+    }
+
+    .contract-book a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contract-book a:hover {
+      background-color: #357abd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .iteration-image {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
 <body>
 
+  <header>
+    <h1>Product & Contract Book</h1>
+    <p>A comprehensive design + documentation project</p>
+  </header>
+
   <div class="container project-intro">
-    <h2>Project Title</h2>
+    <h2>The Product</h2>
     <div class="project-image">
-      <img src="path/to/your/overview-image.jpg" alt="Project Overview">
+      <img src="path/to/your/overview-image.jpg" alt="Product Overview">
     </div>
-    <p>This project aimed to solve [problem statement] for [target audience]. The key objectives were to [list key objectives].</p>
-    <p>My role in this project was [your role], and I was responsible for [your responsibilities].</p>
+    <p>This product was designed to solve [problem statement] for [target audience]. It combines function with thoughtful design to create a meaningful solution.</p>
+    <p>My role encompassed full product development—from concept to execution—including 3D modeling, branding, and UI mockups where necessary.</p>
   </div>
 
   <div class="container project-process">
-    <h2>The Process</h2>
+    <h2>Development Process</h2>
+
     <div class="process-step">
-      <h3>Research & Discovery</h3>
-      <p>We began by conducting user research, including [mention research methods like interviews, surveys, etc.]. This helped us understand the users' needs and pain points related to [the problem].</p>
+      <h3>Initial Research</h3>
+      <p>I conducted in-depth market research and user interviews to identify gaps and validate core ideas behind the product's purpose.</p>
     </div>
+
     <div class="process-step">
-      <h3>Ideation & Wireframing</h3>
-      <p>Based on our research findings, we brainstormed various solutions and started sketching initial ideas. We then moved on to creating low-fidelity wireframes to structure the user flow and key elements of the interface.</p>
+      <h3>Concept Sketching & Prototyping</h3>
+      <p>Sketches and digital wireframes helped visualize possible directions. From there, I moved to physical and/or digital prototypes to test ergonomics and interactions.</p>
     </div>
+
     <div class="process-step">
-      <h3>Prototyping & Testing</h3>
-      <p>We developed interactive prototypes using [mention prototyping tools like Figma, Sketch, Adobe XD] to test our concepts with users. Feedback from these testing sessions was crucial in identifying areas for improvement.</p>
+      <h3>User Testing & Refinement</h3>
+      <p>Feedback from testers guided improvements, including usability changes and refinements in materials, functionality, or layout.</p>
     </div>
-    </div>
+  </div>
 
   <div class="container project-iterations">
     <h2>Final Iterations</h2>
-    <p>Based on the feedback and our design principles, we refined the user interface and user experience. Here are some of the final iterations:</p>
+    <p>These are visual snapshots of the product as it evolved through testing and feedback.</p>
     <div class="iteration-grid">
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-1.jpg" alt="Final Iteration 1">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-2.jpg" alt="Final Iteration 2">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-3.jpg" alt="Final Iteration 3">
-      </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-4.jpg" alt="Final Iteration 4">
-      </div>
-      </div>
-    <p>The final design focused on [mention key aspects of the final design, e.g., usability, accessibility, aesthetics].</p>
+      <div class="iteration-image"><img src="path/to/final-1.jpg" alt="Iteration 1"></div>
+      <div class="iteration-image"><img src="path/to/final-2.jpg" alt="Iteration 2"></div>
+      <div class="iteration-image"><img src="path/to/final-3.jpg" alt="Iteration 3"></div>
+      <div class="iteration-image"><img src="path/to/final-4.jpg" alt="Iteration 4"></div>
+    </div>
+  </div>
+
+  <div class="container contract-book">
+    <h2>The Contract Book</h2>
+    <p>The contract book outlines the expectations, legal context, and scope for the product’s development and use. It includes user agreements, product specifications, and design justifications.</p>
+    <a href="path/to/your-contract-book.pdf" target="_blank">View or Download Contract Book</a>
   </div>
 
 </body>
