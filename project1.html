@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Title | Your Name</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Children's Book | Your Name</title>
   <style>
-    /* Reusing some variables from the main style for consistency */
     :root {
-      --primary-color: #4a90e2; /* Assuming this is a key color */
-      --bg-color: #f4f6f8;     /* Assuming this is a light background */
-      --text-color: #2e2e2e;   /* Assuming this is the main text color */
-      --accent-color: #ff6b6b; /* Assuming this is a highlight color */
-      --project-bg: #ffffff;    /* A clean background for project sections */
-      --section-title: var(--primary-color); /* Using primary for section titles */
-      --process-step-bg: #e9ecef; /* A light grey for process steps */
+      --primary-color: #f77f00;
+      --secondary-color: #fcbf49;
+      --bg-color: #fefae0;
+      --text-color: #3d3d3d;
+      --accent-color: #d62828;
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Comic Sans MS', 'Outfit', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
       margin: 0;
       padding: 0;
     }
@@ -29,123 +25,126 @@
       max-width: 960px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: var(--project-bg);
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     h2 {
-      color: var(--section-title);
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-bottom: 3px dashed var(--accent-color);
       padding-bottom: 0.5rem;
-    }
-
-    /* Intro Section */
-    .project-intro p {
       margin-bottom: 1rem;
     }
 
-    .project-intro .project-image {
+    p {
+      line-height: 1.6;
+    }
+
+    .cover-image, .image-block img {
       width: 100%;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      /* Add styling for your project image here */
-      background-color: #ccc; /* Placeholder */
-      height: 200px; /* Placeholder height */
-      object-fit: cover; /* To make the image cover the area */
-    }
-
-    /* Process Section */
-    .project-process .process-step {
-      background-color: var(--process-step-bg);
-      padding: 1.25rem;
-      border-radius: 6px;
+      height: auto;
+      border-radius: 8px;
       margin-bottom: 1rem;
-      border-left: 5px solid var(--accent-color); /* Highlight the step */
     }
 
-    .project-process .process-step h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
-    }
-
-    .project-process .process-step p {
-      color: #555;
-    }
-
-    /* Final Iterations Section */
-    .project-iterations p {
-      margin-bottom: 1rem; /* Add some spacing above the grid */
-    }
-
-    .project-iterations .iteration-image {
-      width: calc(50% - 0.5rem); /* Two images side by side with some spacing */
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      /* Add styling for your iteration images here */
-      background-color: #ddd; /* Placeholder */
-      height: 150px; /* Placeholder height */
-      object-fit: cover;
-    }
-
-    .project-iterations .iteration-image:nth-child(odd) {
-      margin-right: 1rem;
-    }
-
-    .project-iterations .iteration-grid {
+    .image-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    .image-thumb {
+      flex: 1 1 calc(50% - 1rem);
+      height: 180px;
+      background-color: #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .image-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .character-card {
+      background-color: var(--secondary-color);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .character-card h3 {
+      margin-top: 0;
+    }
+
+    .section {
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="container project-intro">
-    <h2>Project Title</h2>
-    <div class="project-image">
-      <img src="path/to/your/overview-image.jpg" alt="Project Overview">
-    </div>
-    <p>This project aimed to solve [problem statement] for [target audience]. The key objectives were to [list key objectives].</p>
-    <p>My role in this project was [your role], and I was responsible for [your responsibilities].</p>
-  </div>
+  <div class="container">
 
-  <div class="container project-process">
-    <h2>The Process</h2>
-    <div class="process-step">
-      <h3>Research & Discovery</h3>
-      <p>We began by conducting user research, including [mention research methods like interviews, surveys, etc.]. This helped us understand the users' needs and pain points related to [the problem].</p>
-    </div>
-    <div class="process-step">
-      <h3>Ideation & Wireframing</h3>
-      <p>Based on our research findings, we brainstormed various solutions and started sketching initial ideas. We then moved on to creating low-fidelity wireframes to structure the user flow and key elements of the interface.</p>
-    </div>
-    <div class="process-step">
-      <h3>Prototyping & Testing</h3>
-      <p>We developed interactive prototypes using [mention prototyping tools like Figma, Sketch, Adobe XD] to test our concepts with users. Feedback from these testing sessions was crucial in identifying areas for improvement.</p>
-    </div>
+    <!-- Book Introduction -->
+    <div class="section">
+      <h2>Book Title: <em>Your Magical Story</em></h2>
+      <img class="cover-image" src="path/to/your/cover.jpg" alt="Book Cover">
+      <p><strong>Author/Illustrator:</strong> Your Name</p>
+      <p><strong>Target Age Group:</strong> Ages 4–8</p>
+      <p><strong>Summary:</strong> A playful and heartwarming adventure where [main character] discovers [plot highlight] in a world filled with imagination, kindness, and fun.</p>
     </div>
 
-  <div class="container project-iterations">
-    <h2>Final Iterations</h2>
-    <p>Based on the feedback and our design principles, we refined the user interface and user experience. Here are some of the final iterations:</p>
-    <div class="iteration-grid">
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-1.jpg" alt="Final Iteration 1">
+    <!-- Characters -->
+    <div class="section">
+      <h2>Meet the Characters</h2>
+      <div class="character-card">
+        <h3>🐰 Bella the Bunny</h3>
+        <p>Bella loves carrots and solving mysteries! She's brave, clever, and always there for her friends.</p>
       </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-2.jpg" alt="Final Iteration 2">
+      <div class="character-card">
+        <h3>🦊 Felix the Fox</h3>
+        <p>Felix is sneaky but kind. He’s always up for an adventure and helps Bella when she needs it most.</p>
       </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-3.jpg" alt="Final Iteration 3">
+      <!-- Add more characters as needed -->
+    </div>
+
+    <!-- Storyboards / Sketches -->
+    <div class="section">
+      <h2>Storyboards & Sketches</h2>
+      <p>These rough drafts show how the visual story began taking shape.</p>
+      <div class="image-grid">
+        <div class="image-thumb"><img src="path/to/sketch1.jpg" alt="Storyboard 1"></div>
+        <div class="image-thumb"><img src="path/to/sketch2.jpg" alt="Storyboard 2"></div>
       </div>
-      <div class="iteration-image">
-        <img src="path/to/your/final-iteration-4.jpg" alt="Final Iteration 4">
+    </div>
+
+    <!-- Sample Pages -->
+    <div class="section">
+      <h2>Sample Pages</h2>
+      <p>Here are a few sample spreads from the book to give a feel for the tone, color, and pacing.</p>
+      <div class="image-grid">
+        <div class="image-thumb"><img src="path/to/page1.jpg" alt="Sample Page 1"></div>
+        <div class="image-thumb"><img src="path/to/page2.jpg" alt="Sample Page 2"></div>
       </div>
-      </div>
-    <p>The final design focused on [mention key aspects of the final design, e.g., usability, accessibility, aesthetics].</p>
+    </div>
+
+    <!-- Writing & Illustration Process -->
+    <div class="section">
+      <h2>Creative Process</h2>
+      <p>The book was written over [time period] with a focus on playful rhyme and visual rhythm. I used [tools like Procreate, Photoshop, etc.] for illustration and [Scrivener, Google Docs, etc.] for writing.</p>
+      <p>Key goals included emotional resonance, visual clarity for young readers, and joyful pacing.</p>
+    </div>
+
+    <!-- What's Next -->
+    <div class="section">
+      <h2>What's Next?</h2>
+      <p>The manuscript and illustrations are currently [e.g., being submitted to publishers / undergoing layout / being self-published].</p>
+      <p>Looking forward to sharing this story with children everywhere!</p>
+    </div>
+
   </div>
 
 </body>
