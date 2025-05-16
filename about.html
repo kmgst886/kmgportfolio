@@ -133,13 +133,35 @@
     }
 
     footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #ffffff;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
+  background: #2c3e50; /* Changed background color */
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #ecf0f1; /* Light text for dark background */
+  margin-top: 4rem;
+  border-top: 1px solid #1a252f;
+}
+
+.footer-links {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #ecf0f1; /* Light link color */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color); /* Bright accent on hover */
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
 
     @media (max-width: 768px) {
       .about {
@@ -202,7 +224,15 @@
   </section>
 
   <footer>
-    <p>© 2025 Your Name. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Your Name. All rights reserved.</p>
+    </div>
   </footer>
 
 </body>
