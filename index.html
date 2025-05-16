@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Name | UX/UI Designer</title>
   <style>
-    /* Google Font */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
     :root {
@@ -23,7 +22,7 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: linear-gradient(45deg, #f0f4ff, #ffffff); /* Added gradient background */
+      background: linear-gradient(45deg, #f0f4ff, #ffffff);
       color: var(--text-color);
       line-height: 1.6;
     }
@@ -74,6 +73,19 @@
       padding: 0 1rem;
     }
 
+    .hero-content {
+      animation: fadeSlideIn 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .hero-content h1 {
       font-size: 2.8rem;
       margin-bottom: 1rem;
@@ -105,12 +117,34 @@
     }
 
     footer {
+      background: #f8f9fc;
+      padding: 3rem 1rem;
       text-align: center;
-      padding: 2rem 1rem;
-      background: #ffffff;
+      color: #444;
       margin-top: 4rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
       font-size: 0.9rem;
-      color: #999;
+      color: #777;
     }
 
     @media (max-width: 768px) {
@@ -122,13 +156,18 @@
         flex-direction: column;
         gap: 1rem;
       }
+
+      .footer-links a {
+        display: block;
+        margin: 0.5rem 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">Kiya Grivalsky</div>
+    <div class="logo">Name</div>
     <nav>
       <ul>
         <li><a href="index.html" class="active">Home</a></li>
@@ -148,11 +187,19 @@
   </section>
 
   <footer>
-    <p>© 2025 Your Name. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Your Name. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
-    // You can add smooth scroll, animation, or interactivity here
+    // Smooth scroll for internal anchors (optional if you add sections with IDs)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -162,5 +209,6 @@
       });
     });
   </script>
+
 </body>
 </html>
