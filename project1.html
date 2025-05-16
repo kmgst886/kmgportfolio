@@ -147,6 +147,54 @@
       color: #bdc3c7;
     }
 
+       /* Scrollable Arrows */
+    .scroll-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      font-size: 2.5rem;
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .scroll-arrow-left {
+      left: 10px;
+    }
+
+    .scroll-arrow-right {
+      right: 10px;
+    }
+
+    .scroll-arrow span {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      text-transform: capitalize;
+    }
+
+    .scroll-arrow:hover {
+      background-color: var(--accent-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .iteration-image {
+        flex: 1 1 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -234,6 +282,16 @@
       <p>© 2025 Your Name. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Scroll Arrows -->
+  <div class="scroll-arrow scroll-arrow-left" onclick="window.history.back();">
+    &#8592;
+    <span>Previous</span>
+  </div>
+  <div class="scroll-arrow scroll-arrow-right" onclick="window.location.href='nextpage.html';">
+    &#8594;
+    <span>Next</span>
+  </div>
 
 
 </body>
