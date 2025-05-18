@@ -1,18 +1,20 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Kiya Grivalsky</title>
   <style>
-    /* Reusing the same styles from Home page for consistency */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
     :root {
       --primary-color: #4a90e2;
-      --bg-color: #f4f6f8;
-      --text-color: #2e2e2e;
       --accent-color: #ff6b6b;
+      --bg-color: #f4f6f8;
+      --dark-bg-color: #2c3e50;
+      --light-bg-color: #ecf0f1;
+      --text-color: #2e2e2e;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     * {
@@ -34,7 +36,7 @@
       align-items: center;
       padding: 1.5rem 10%;
       background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: var(--box-shadow);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -105,7 +107,7 @@
       padding: 1.5rem;
       background-color: white;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--box-shadow);
       text-align: center;
       transition: transform 0.3s;
     }
@@ -132,11 +134,48 @@
       border-radius: 10px;
     }
 
+    /* New Container Styles for the added sections */
+    .section-container {
+      background-color: var(--light-bg-color);
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: var(--box-shadow);
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-text {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .section-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .section-btn:hover {
+      background-color: var(--accent-color);
+    }
+
     footer {
-      background: #2c3e50; /* Changed background color */
+      background: var(--dark-bg-color);
       padding: 3rem 1rem;
       text-align: center;
-      color: #ecf0f1; /* Light text for dark background */
+      color: #ecf0f1;
       margin-top: 4rem;
       border-top: 1px solid #1a252f;
     }
@@ -148,13 +187,13 @@
     .footer-links a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #ecf0f1; /* Light link color */
+      color: #ecf0f1;
       font-weight: 500;
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .footer-links a:hover {
-      color: var(--accent-color); /* Bright accent on hover */
+      color: var(--accent-color);
       transform: translateY(-2px);
     }
 
@@ -166,6 +205,10 @@
     @media (max-width: 768px) {
       .about {
         flex-direction: column;
+      }
+
+      .section-container {
+        padding: 2rem 1rem;
       }
     }
   </style>
@@ -197,54 +240,30 @@
   </section>
 
   <!-- Design Philosophy Section -->
-  <section class="philosophy">
-    <h2>My Design Philosophy</h2>
-    <p>Great design starts with understanding the user. I prioritize a user-centered approach in everything I do, focusing on solving real problems and creating intuitive experiences. Through research, empathy, and continuous iteration, I strive to build designs that not only meet users’ needs but also delight them.</p>
+  <section class="section-container">
+    <h2 class="section-title">My Design Philosophy</h2>
+    <p class="section-text">Great design starts with understanding the user. I prioritize a user-centered approach in everything I do, focusing on solving real problems and creating intuitive experiences. Through research, empathy, and continuous iteration, I strive to build designs that not only meet users’ needs but also delight them.</p>
+    <button class="section-btn">Learn More</button>
   </section>
 
   <!-- Design Process Section -->
-  <section class="process">
-    <h2>My Design Process</h2>
-    <ul>
+  <section class="section-container">
+    <h2 class="section-title">My Design Process</h2>
+    <p class="section-text">I follow a structured and iterative design process, which allows me to refine ideas and create polished, functional solutions.</p>
+    <ul class="section-text">
       <li><strong>Research & Discovery:</strong> I begin every project with thorough research, including user interviews and competitive analysis, to gain a deep understanding of the problem.</li>
-      <li><strong>Wireframing & Prototyping:</strong> I then create low-fidelity wireframes and prototypes to test and validate concepts quickly, ensuring alignment with user needs.</li>
+      <li><strong>Wireframing & Prototyping:</strong> I create low-fidelity wireframes and prototypes to test and validate concepts quickly, ensuring alignment with user needs.</li>
       <li><strong>Testing & Refining:</strong> I conduct usability testing to gather feedback and make necessary iterations to improve the design.</li>
       <li><strong>Collaboration & Handoff:</strong> I collaborate closely with developers to ensure the design is executed faithfully and smoothly integrated into the final product.</li>
     </ul>
+    <button class="section-btn">Explore My Projects</button>
   </section>
 
   <!-- Future Goals Section -->
-  <section class="future-goals">
-    <h2>Future Goals</h2>
-    <p>Looking ahead, I’m excited to expand my skills in interaction design and explore emerging technologies like augmented reality (AR) and virtual reality (VR). My goal is to design innovative experiences that challenge conventions and make technology feel more human-centric.</p>
-  </section>
-
-  <section class="skills">
-    <h2>My Skills</h2>
-    <div class="skill-card">
-      <h3>UX Research</h3>
-      <div class="skill-bar">
-        <span style="width: 90%; background-color: var(--primary-color);"></span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>UI Design</h3>
-      <div class="skill-bar">
-        <span style="width: 85%; background-color: var(--primary-color);"></span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Prototyping</h3>
-      <div class="skill-bar">
-        <span style="width: 80%; background-color: var(--primary-color);"></span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Wireframing</h3>
-      <div class="skill-bar">
-        <span style="width: 95%; background-color: var(--primary-color);"></span>
-      </div>
-    </div>
+  <section class="section-container">
+    <h2 class="section-title">Future Goals</h2>
+    <p class="section-text">Looking ahead, I’m excited to expand my expertise into emerging technologies like augmented reality (AR) and virtual reality (VR), as well as enhancing my skills in motion design. I’m also passionate about accessibility and inclusivity in design, striving to ensure that my work is accessible to everyone, regardless of ability or background.</p>
+    <button class="section-btn">Contact Me</button>
   </section>
 
   <footer>
