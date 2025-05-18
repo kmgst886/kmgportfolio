@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Kiya Grivalsky</title>
   <style>
+    /* Reusing the same styles from Home page for consistency */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
     :root {
       --primary-color: #4a90e2;
-      --accent-color: #ff6b6b;
       --bg-color: #f4f6f8;
-      --dark-bg-color: #2c3e50;
-      --light-bg-color: #ecf0f1;
       --text-color: #2e2e2e;
-      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --accent-color: #ff6b6b;
     }
 
     * {
@@ -36,7 +34,7 @@
       align-items: center;
       padding: 1.5rem 10%;
       background: white;
-      box-shadow: var(--box-shadow);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -107,7 +105,7 @@
       padding: 1.5rem;
       background-color: white;
       border-radius: 8px;
-      box-shadow: var(--box-shadow);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s;
     }
@@ -134,84 +132,40 @@
       border-radius: 10px;
     }
 
-  
-    .section-container {
-      background-color: var(--light-bg-color);
-      border-radius: 10px;
-      padding: 3rem;
-      box-shadow: var(--box-shadow);
-      margin-bottom: 4rem;
-      max-width: 700px; 
-      margin-left: auto; 
-      margin-right: auto; 
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-text {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .section-btn {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .section-btn:hover {
-      background-color: var(--accent-color);
-    }
-
     footer {
-      background: var(--dark-bg-color);
-      padding: 3rem 1rem;
-      text-align: center;
-      color: #ecf0f1;
-      margin-top: 4rem;
-      border-top: 1px solid #1a252f;
-    }
+  background: #2c3e50; /* Changed background color */
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #ecf0f1; /* Light text for dark background */
+  margin-top: 4rem;
+  border-top: 1px solid #1a252f;
+}
 
-    .footer-links {
-      margin-bottom: 1rem;
-    }
+.footer-links {
+  margin-bottom: 1rem;
+}
 
-    .footer-links a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #ecf0f1;
-      font-weight: 500;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+.footer-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #ecf0f1; /* Light link color */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
 
-    .footer-links a:hover {
-      color: var(--accent-color);
-      transform: translateY(-2px);
-    }
+.footer-links a:hover {
+  color: var(--accent-color); /* Bright accent on hover */
+  transform: translateY(-2px);
+}
 
-    .footer-bottom {
-      font-size: 0.9rem;
-      color: #bdc3c7;
-    }
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
 
     @media (max-width: 768px) {
       .about {
         flex-direction: column;
-      }
-
-      .section-container {
-        padding: 2rem 1rem;
       }
     }
   </style>
@@ -233,7 +187,7 @@
   <section class="about">
     <div class="about-text">
       <h2>About Me</h2>
-      <p>Hi, I'm <strong>Name</strong>, a passionate UX/UI designer currently in my senior year, set to graduate later this year. With a strong foundation in design principles and a deep interest in how people interact with digital products, I aim to create thoughtful, intuitive experiences that not only look great but feel natural to use.</p>
+      <p>Hi, I'm <strong>Kiya</strong>, a passionate UX/UI designer currently in my senior year, set to graduate later this year. With a strong foundation in design principles and a deep interest in how people interact with digital products, I aim to create thoughtful, intuitive experiences that not only look great but feel natural to use.</p>
       <p>Throughout my academic journey, I’ve explored everything from user research and wireframing to high-fidelity prototyping and usability testing. My approach combines creativity with a user-centered mindset, and I’m always eager to learn, iterate, and grow.</p>
       <p>Whether I’m sketching early ideas or refining pixel-perfect interfaces, I enjoy solving problems through design and collaborating with others to bring ideas to life. I’m excited to begin my professional journey and contribute to meaningful projects that make a real impact.</p>
     </div>
@@ -242,30 +196,32 @@
     </div>
   </section>
 
- 
-  <section class="section-container">
-    <h2 class="section-title">My Design Philosophy</h2>
-    <p class="section-text">Great design starts with understanding the user. I prioritize a user-centered approach in everything I do, focusing on solving real problems and creating intuitive experiences. Through research, empathy, and continuous iteration, I strive to build designs that not only meet users’ needs but also delight them.</p>
-  </section>
-
-
-  <section class="section-container">
-    <h2 class="section-title">My Design Process</h2>
-    <p class="section-text">I follow a structured and iterative design process, which allows me to refine ideas and create polished, functional solutions.</p>
-    <ul class="section-text">
-      <li><strong>Research & Discovery:</strong> I begin every project with thorough research, including user interviews and competitive analysis, to gain a deep understanding of the problem.</li>
-      <li><strong>Wireframing & Prototyping:</strong> I create low-fidelity wireframes and prototypes to test and validate concepts quickly, ensuring alignment with user needs.</li>
-      <li><strong>Testing & Refining:</strong> I conduct usability testing to gather feedback and make necessary iterations to improve the design.</li>
-      <li><strong>Collaboration & Handoff:</strong> I collaborate closely with developers to ensure the design is executed faithfully and smoothly integrated into the final product.</li>
-    </ul>
-    <button class="portfolio.html">Explore My Projects</button>
-  </section>
-
-
-  <section class="section-container">
-    <h2 class="section-title">Future Goals</h2>
-    <p class="section-text">Looking ahead, I’m excited to expand my expertise into new areas of design, particularly in mobile applications and advanced interactive experiences. I want to continue growing as a designer, contribute to meaningful projects, and eventually lead design teams that create innovative solutions.</p>
-    <button class="contact.html">Get in Touch</button>
+  <section class="skills">
+    <h2>My Skills</h2>
+    <div class="skill-card">
+      <h3>UX Research</h3>
+      <div class="skill-bar">
+        <span style="width: 90%; background-color: var(--primary-color);"></span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>UI Design</h3>
+      <div class="skill-bar">
+        <span style="width: 85%; background-color: var(--primary-color);"></span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Prototyping</h3>
+      <div class="skill-bar">
+        <span style="width: 80%; background-color: var(--primary-color);"></span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Wireframing</h3>
+      <div class="skill-bar">
+        <span style="width: 95%; background-color: var(--primary-color);"></span>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -276,7 +232,7 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Name. All rights reserved.</p>
+      <p>© 2025 Your Name. All rights reserved.</p>
     </div>
   </footer>
 
