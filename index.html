@@ -72,15 +72,15 @@
       text-align: center;
       background: linear-gradient(to right, #f0f4ff, #ffffff);
       padding: 0 1rem;
-      position: relative; /* Make sure images are positioned inside */
-      overflow: hidden; /* Prevent images from overflowing the container */
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-content {
       animation: fadeSlideIn 1.5s ease forwards;
       opacity: 0;
       transform: translateY(20px);
-      z-index: 2; /* Ensure the content stays above the images */
+      z-index: 2;
     }
 
     @keyframes fadeSlideIn {
@@ -151,16 +151,15 @@
       color: #bdc3c7;
     }
 
-   
     #image-container {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; 
-      z-index: 1; 
-      overflow: hidden; 
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
     }
 
     .fade-image {
@@ -171,7 +170,6 @@
       height: auto;
     }
 
-   
     .fade-in {
       opacity: 1;
     }
@@ -207,7 +205,6 @@
     </nav>
   </header>
 
-  
   <section class="hero">
     <div class="hero-content">
       <h1>Hi, I'm <span class="highlight">Kiya</span></h1>
@@ -216,7 +213,6 @@
     </div>
   </section>
 
-  
   <div id="image-container">
     <img class="fade-image" src="Bakery For TSUG 2024.PNG" alt="Image 1">
     <img class="fade-image" src="Basketball Scenery 2023.PNG" alt="Image 2">
@@ -249,25 +245,55 @@
   </footer>
 
   <script>
-    
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const images = document.querySelectorAll(".fade-image");
       const heroContainer = document.querySelector(".hero");
       const containerWidth = heroContainer.offsetWidth;
       const containerHeight = heroContainer.offsetHeight;
+      const imageSize = 150;
+
+      const noGoZone = {
+        xMin: containerWidth / 2 - 200,
+        xMax: containerWidth / 2 + 200,
+        yMin: containerHeight / 2 - 100,
+        yMax: containerHeight / 2 + 100
+      };
+
+      let activePositions = [];
+
+      function isOverlapping(x, y) {
+        return activePositions.some(pos => {
+          const dx = pos.x - x;
+          const dy = pos.y - y;
+          return Math.sqrt(dx * dx + dy * dy) < imageSize;
+        });
+      }
+
+      function isInNoGoZone(x, y) {
+        return x > noGoZone.xMin && x < noGoZone.xMax && y > noGoZone.yMin && y < noGoZone.yMax;
+      }
 
       function randomPosition() {
-        const randomTop = Math.random() * containerHeight;
-        const randomLeft = Math.random() * containerWidth;
-        return { top: randomTop, left: randomLeft };
+        let attempts = 0;
+        let top, left;
+
+        do {
+          left = Math.random() * (containerWidth - imageSize);
+          top = Math.random() * (containerHeight - imageSize);
+          attempts++;
+        } while (
+          (isInNoGoZone(left, top) || isOverlapping(left, top)) &&
+          attempts < 50
+        );
+
+        activePositions.push({ x: left, y: top });
+        return { top, left };
       }
 
       function fadeImages() {
-       
         const randomCount = Math.floor(Math.random() * 5) + 1;
         const randomImages = [];
 
-        
         while (randomImages.length < randomCount) {
           const randomIndex = Math.floor(Math.random() * images.length);
           if (!randomImages.includes(images[randomIndex])) {
@@ -275,19 +301,19 @@
           }
         }
 
+        activePositions = [];
+
         randomImages.forEach(img => {
           const { top, left } = randomPosition();
           img.style.top = top + "px";
           img.style.left = left + "px";
           img.classList.add("fade-in");
 
-          
-          setTimeout(function() {
+          setTimeout(function () {
             img.classList.remove("fade-in");
           }, 3000);
         });
 
-        
         setTimeout(fadeImages, Math.random() * 2000 + 1000);
       }
 
