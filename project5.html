@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Court of Champions Board Game | Kiya Grivalsky</title>
+  <style>
+    :root {
+      --primary-color: #f77f00;
+      --secondary-color: #fcbf49;
+      --bg-color: #fefae0;
+      --text-color: #3d3d3d;
+      --accent-color: #d62828;
+    }
+
+    body {
+      font-family: 'Comic Sans MS', 'Outfit', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 10%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-color);
+    }
+
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      border-bottom: 3px dashed var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .cover-image, .image-block img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .center-align {
+  text-align: center;
+}
+
+     .image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image-thumb {
+  flex: 1 1 200px;  
+  max-width: 200px; 
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+}
+
+.image-thumb img {
+  width: 100%;    
+  height: auto;  
+  object-fit: contain; 
+  
+ }
+
+    .character-card {
+      background-color: var(--secondary-color);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .character-card h3 {
+      margin-top: 0;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    /* Buy Section */
+    .buy-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 10px;
+    }
+
+    .buy-section a {
+      display: inline-block;
+      background-color: white;
+      color: var(--accent-color);
+      font-weight: bold;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .buy-section a:hover {
+      background-color: #ffe5e5;
+    }
+
+    .buy-image {
+      max-width: 300px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+    }
+     }
+
+    .document-book {
+      background-color: #f0f9ff;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-left: 6px solid var(--primary-color);
+      border-radius: 8px;
+    }
+
+    .document-book a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #2c3e50;
+      padding: 3rem 1rem;
+      text-align: center;
+      color: #ecf0f1;
+      margin-top: 4rem;
+      border-top: 1px solid #1a252f;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      font-size: 0.9rem;
+      color: #bdc3c7;
+    }
+
+       /* Scrollable Arrows */
+    .scroll-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      font-size: 2.5rem;
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .scroll-arrow-left {
+      left: 10px;
+    }
+
+    .scroll-arrow-right {
+      right: 10px;
+    }
+
+    .scroll-arrow span {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      text-transform: capitalize;
+    }
+
+    .scroll-arrow:hover {
+      background-color: var(--accent-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .iteration-image {
+        flex: 1 1 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+   <header>
+    <div class="logo">Kiya Grivalsky</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Book Introduction -->
+    <div class="section">
+      <h2>Game Title: <em>Court of Champions/em></h2>
+      <img class="cover-image" src="imagename" alt="Book Cover">
+      <p><strong>Summary:</strong> info.</p>
+    </div>
+
+    <!-- Characters -->
+    <div class="section">
+      <h2>Process</h2>
+      <div class="character-card">
+        <h3>Brainstorming:</h3>
+        <p>INFO....</p>
+        <p>INFO.....</p>
+        <p class="center-align">INFO..../p>
+      </div>
+      <div class="character-card">
+        <h3>Prototyping</h3>
+        <p>INFO.....</p>
+        <p>INFO.....</p>
+        <p class="center-align">INFO....</p>
+        <p class="center-align">INFO....</p>
+      </div>
+      <div class="character-card">
+        <h3>INFO...</h3>
+        <p>INFO....</p>
+        <p class="center-align">INFO...</p>
+      </div>
+    </div>
+
+    <!-- Storyboards / Sketches -->
+    <div class="section">
+      <h2>First Iteration</h2>
+      <p>INFO......</p>
+      <div class="image-grid">
+        <div class="image-thumb"><img src="IMAGE" alt="IMAGE 1"></div>
+        <div class="image-thumb"><img src="IMAGE" alt="IMAGE 2"></div>
+      </div>
+    </div>
+
+    <!-- Sample Pages -->
+    <div class="section">
+      <h2>Final Iteration</h2>
+      <p>INFO......</p>
+      <div class="image-grid">
+        <div class="image-thumb"><img src="IMAGE" alt="IMAGE 1"></div>
+        <div class="image-thumb"><img src="IMAGE" alt="IMAGE 2"></div>
+      </div>
+    </div>
+
+    <!-- Writing & Illustration Process -->
+    <div class="section">
+      <h2>Creative Process</h2>
+      <p>INFO.....</p>
+      <p>INFO.....</p>
+    </div>
+
+    <!-- What's Next -->
+    <div class="section">
+      <h2>What's Next?</h2>
+      <p>INFO......</p>
+      <p>INFO......</p>
+    </div>
+
+     <div class="container document-book">
+    <h2>Game Documentation</h2>
+    <p>INFO......</p>
+    <a href="Document Name" target="_blank">View or Download Game Documentation</a>
+  </div>
+
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Arrows -->
+  <div class="scroll-arrow scroll-arrow-right" onclick="window.location.href='project2.html';">
+    &#8594;
+    <span>Project 5</span>
+  </div>
+
+
+</body>
+</html>
