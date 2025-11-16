@@ -8,14 +8,15 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
+    /* Original color palette restored */
     :root {
-      --primary-color: #ff6b6b;
-      --secondary-color: #ff9e6b;
-      --accent-color: #ffd36b;
-      --bg-color: #fff0f5;
-      --text-color: #2e2e2e;
-      --dark-bg: #1e1e1e;
-      --dark-text: #f4f4f4;
+      --primary-color: #5A67D8; /* Indigo */
+      --secondary-color: #38B2AC; /* Teal */
+      --accent-color: #F6AD55; /* Orange */
+      --bg-color: #F7FAFC; /* Light gray */
+      --text-color: #2D3748; /* Dark gray */
+      --dark-bg: #1A202C;
+      --dark-text: #EDF2F7;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,18 +47,28 @@
 
     .dark-toggle { cursor: pointer; font-size: 1.2rem; }
 
+    /* Hero with image container animation */
     .hero {
       height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
-      background: linear-gradient(135deg, #ff6b6b, #ff9e6b, #ffd36b);
-      position: relative; overflow: hidden; color: white;
+      position: relative; overflow: hidden; color: var(--text-color);
     }
     .hero-content { animation: fadeSlideIn 1.5s ease forwards; opacity: 0; transform: translateY(20px); z-index: 2; }
     @keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
+
     .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-    .hero-content .highlight { color: #fff; }
-    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; color: #fff; }
-    .btn { display: inline-block; padding: 0.75rem 1.5rem; background-color: var(--dark-bg); color: white; border-radius: 4px; font-weight: 500; text-decoration: none; transition: background 0.3s; }
-    .btn:hover { background-color: var(--text-color); }
+    .hero-content .highlight { color: var(--primary-color); }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; background-color: var(--primary-color); color: white; border-radius: 4px; font-weight: 500; text-decoration: none; transition: background 0.3s; }
+    .btn:hover { background-color: var(--accent-color); }
+
+    /* Animated image container */
+    .image-container {
+      width: 200px; height: 200px; margin: 2rem auto 0;
+      border-radius: 50%; overflow: hidden;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+    .image-container img { width: 100%; height: 100%; object-fit: cover; }
+    @keyframes float { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(-5deg); } }
 
     section { padding: 5rem 10%; text-align: center; position: relative; }
     .section-title { font-size: 2rem; margin-bottom: 2rem; position: relative; }
@@ -68,18 +79,17 @@
     .slide-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
     .slide-in.show { opacity: 1; transform: translateY(0); }
 
-    /* Animated blobs */
-    .blob { position: absolute; border-radius: 50%; opacity: 0.4; animation: blobMove 8s infinite alternate; z-index: -1; }
-    .blob1 { width: 300px; height: 300px; background: #ff6b6b; top: -50px; left: -50px; animation-delay: 0s; }
-    .blob2 { width: 400px; height: 400px; background: #ff9e6b; top: 50%; left: 60%; animation-delay: 2s; }
-    .blob3 { width: 250px; height: 250px; background: #ffd36b; top: 70%; left: -20%; animation-delay: 4s; }
+    /* Blobs */
+    .blob { position: absolute; border-radius: 50%; opacity: 0.2; animation: blobMove 8s infinite alternate; z-index: -1; }
+    .blob1 { width: 300px; height: 300px; background: var(--primary-color); top: -50px; left: -50px; animation-delay: 0s; }
+    .blob2 { width: 400px; height: 400px; background: var(--secondary-color); top: 50%; left: 60%; animation-delay: 2s; }
+    .blob3 { width: 250px; height: 250px; background: var(--accent-color); top: 70%; left: -20%; animation-delay: 4s; }
     @keyframes blobMove { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px, -30px) scale(1.1); } 100% { transform: translate(-20px, 20px) scale(0.9); } }
 
-    /* Meet Me / Resume / LinkedIn */
+    /* Cards */
     .card { background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
     .card:hover { transform: translateY(-10px); }
     body.dark .card { background: #2c2c2c; color: var(--dark-text); }
-
     .card a { color: var(--primary-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
     .card a:hover { color: var(--accent-color); }
 
@@ -94,7 +104,6 @@
       nav ul{flex-direction:column; gap:1rem;}
       .footer-links a{display:block; margin:0.5rem 0;}
     }
-
   </style>
 </head>
 <body>
@@ -124,6 +133,11 @@
       <h1>Hi, I'm <span class="highlight">Kiya</span></h1>
       <p>UX/UI Designer crafting clean & user-focused experiences</p>
       <a href="portfolio.html" class="btn">View My Work</a>
+
+      <!-- Image container animation restored -->
+      <div class="image-container">
+        <img src="your-image.jpg" alt="Kiya Grivalsky">
+      </div>
     </div>
   </section>
 
