@@ -4,10 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Kiya Grivalsky</title>
-  <style>
-    /* Reusing the same styles from Home page for consistency */
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
     :root {
       --primary-color: #4a90e2;
       --bg-color: #f4f6f8;
@@ -69,6 +73,7 @@
       text-align: center;
     }
 
+    /* ABOUT SECTION */
     .about {
       display: flex;
       align-items: center;
@@ -91,85 +96,130 @@
     .about p {
       font-size: 1.2rem;
       color: #555;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    /* SKILLS SECTION */
+    .skills h2 {
+      font-size: 2.2rem;
       margin-bottom: 2rem;
     }
 
-    .skills {
+    .skill-groups {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
 
-    .skill-card {
-      padding: 1.5rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s;
+    .skill-group-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: left;
+      opacity: 0;
+      transform: translateY(25px);
+      animation: fadeUp 0.8s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .skill-card:hover {
-      transform: translateY(-10px);
+    .skill-group-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .skill-card h3 {
+    /* CATEGORY TAGS */
+    .tag {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
       margin-bottom: 1rem;
-      color: var(--primary-color);
+      color: white;
     }
 
-    .skill-bar {
-      background: #ddd;
-      border-radius: 10px;
-      height: 8px;
-      overflow: hidden;
+    .design-tag   { background: #ff6b6b; }
+    .ux-tag       { background: #4a90e2; }
+    .code-tag     { background: #00b894; }
+    .content-tag  { background: #e056fd; }
+    .game-tag     { background: #f9ca24; color: #2e2e2e; }
+    .software-tag { background: #6c5ce7; }
+
+    .skill-group-card ul {
+      list-style: none;
+      margin-top: 1rem;
     }
 
-    .skill-bar span {
-      display: block;
-      height: 100%;
-      border-radius: 10px;
+    .skill-group-card li {
+      padding: 0.3rem 0;
+      color: #555;
+      font-size: 1rem;
     }
 
+    /* Animation */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stagger animation */
+    .skill-group-card:nth-child(1) { animation-delay: 0.1s; }
+    .skill-group-card:nth-child(2) { animation-delay: 0.2s; }
+    .skill-group-card:nth-child(3) { animation-delay: 0.3s; }
+    .skill-group-card:nth-child(4) { animation-delay: 0.4s; }
+    .skill-group-card:nth-child(5) { animation-delay: 0.5s; }
+    .skill-group-card:nth-child(6) { animation-delay: 0.6s; }
+
+    /* FOOTER */
     footer {
-  background: #2c3e50; /* Changed background color */
-  padding: 3rem 1rem;
-  text-align: center;
-  color: #ecf0f1; /* Light text for dark background */
-  margin-top: 4rem;
-  border-top: 1px solid #1a252f;
-}
+      background: #2c3e50;
+      padding: 3rem 1rem;
+      text-align: center;
+      color: #ecf0f1;
+      margin-top: 4rem;
+      border-top: 1px solid #1a252f;
+    }
 
-.footer-links {
-  margin-bottom: 1rem;
-}
+    .footer-links {
+      margin-bottom: 1rem;
+    }
 
-.footer-links a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #ecf0f1; /* Light link color */
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
+    .footer-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-.footer-links a:hover {
-  color: var(--accent-color); /* Bright accent on hover */
-  transform: translateY(-2px);
-}
+    .footer-links a:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
 
-.footer-bottom {
-  font-size: 0.9rem;
-  color: #bdc3c7;
-}
+    .footer-bottom {
+      font-size: 0.9rem;
+      color: #bdc3c7;
+    }
 
     @media (max-width: 768px) {
       .about {
         flex-direction: column;
+        text-align: center;
+      }
+
+      .about p {
+        text-align: center;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -184,6 +234,7 @@
     </nav>
   </header>
 
+  <!-- ABOUT -->
   <section class="about">
     <div class="about-text">
       <h2>About Me</h2>
@@ -196,34 +247,95 @@
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section class="skills">
     <h2>My Skills</h2>
-    <div class="skill-card">
-      <h3>UX Research</h3>
-      <div class="skill-bar">
-        <span style="width: 90%; background-color: var(--primary-color);"></span>
+
+    <div class="skill-groups">
+
+      <!-- Design & Media -->
+      <div class="skill-group-card">
+        <span class="tag design-tag"><i class="fa-solid fa-palette"></i> Design & Media</span>
+        <ul>
+          <li>Product Design</li>
+          <li>Web Design</li>
+          <li>Advertising Design</li>
+          <li>Graphic Design</li>
+          <li>Animation & Motion Graphics</li>
+          <li>Storyboarding</li>
+          <li>Brand Identity</li>
+          <li>Illustration</li>
+        </ul>
       </div>
-    </div>
-    <div class="skill-card">
-      <h3>UI Design</h3>
-      <div class="skill-bar">
-        <span style="width: 85%; background-color: var(--primary-color);"></span>
+
+      <!-- UX/UI -->
+      <div class="skill-group-card">
+        <span class="tag ux-tag"><i class="fa-solid fa-mobile-screen-button"></i> UX / UI</span>
+        <ul>
+          <li>User Experience Design</li>
+          <li>User Research & Testing</li>
+          <li>Wireframing & Prototyping</li>
+          <li>Mobile Interfaces</li>
+          <li>Interaction Design (IxD)</li>
+          <li>Information Architecture</li>
+          <li>Design Systems</li>
+        </ul>
       </div>
-    </div>
-    <div class="skill-card">
-      <h3>Prototyping</h3>
-      <div class="skill-bar">
-        <span style="width: 80%; background-color: var(--primary-color);"></span>
+
+      <!-- Coding -->
+      <div class="skill-group-card">
+        <span class="tag code-tag"><i class="fa-solid fa-code"></i> Coding & Development</span>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+          <li>Python</li>
+          <li>R-Studio</li>
+          <li>Data Visualization</li>
+          <li>Responsive Development</li>
+          <li>Git / GitHub</li>
+          <li>WCAG Accessibility</li>
+        </ul>
       </div>
-    </div>
-    <div class="skill-card">
-      <h3>Wireframing</h3>
-      <div class="skill-bar">
-        <span style="width: 95%; background-color: var(--primary-color);"></span>
+
+      <!-- Content -->
+      <div class="skill-group-card">
+        <span class="tag content-tag"><i class="fa-solid fa-camera"></i> Content Creation</span>
+        <ul>
+          <li>Video Editing</li>
+          <li>Photography</li>
+          <li>Content Strategy</li>
+          <li>Scriptwriting</li>
+          <li>Short-Form Media</li>
+        </ul>
       </div>
+
+      <!-- Game Design -->
+      <div class="skill-group-card">
+        <span class="tag game-tag"><i class="fa-solid fa-gamepad"></i> Game Design & Sound</span>
+        <ul>
+          <li>Game Design</li>
+          <li>Board Game Design</li>
+          <li>Level Design</li>
+          <li>Narrative Design</li>
+          <li>Game Sound Design</li>
+        </ul>
+      </div>
+
+      <!-- Software -->
+      <div class="skill-group-card">
+        <span class="tag software-tag"><i class="fa-solid fa-desktop"></i> Software</span>
+        <ul>
+          <li>Adobe Creative Suite</li>
+          <li>Figma / Adobe XD</li>
+          <li>Microsoft 365</li>
+          <li>Procreate</li>
+          <li>Insta360 Film Tools</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
       <a href="index.html">Home</a>
@@ -232,7 +344,7 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Your Name. All rights reserved.</p>
+      <p>© 2025 Kiya Grivalsky. All rights reserved.</p>
     </div>
   </footer>
 
