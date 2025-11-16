@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kiya Grivalsky | UX/UI Designer</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
@@ -27,7 +26,6 @@
       color: var(--text-color);
       line-height: 1.6;
       position: relative;
-      overflow-x: hidden;
     }
 
     header {
@@ -66,9 +64,6 @@
       color: var(--primary-color);
     }
 
-    /* -------------------------------------------
-       HERO
-    ------------------------------------------- */
     .hero {
       height: 90vh;
       display: flex;
@@ -125,155 +120,6 @@
       background-color: #ff4c4c;
     }
 
-    /* -------------------------------------------
-       FEATURED WORK
-    ------------------------------------------- */
-    #featured-work {
-      padding: 5rem 10%;
-      margin-top: 3rem;
-    }
-
-    #featured-work .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-    }
-
-    .featured-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .featured-image {
-      width: 100%;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-      transition: transform 0.4s ease;
-    }
-
-    .featured-image:hover {
-      transform: scale(1.02);
-    }
-
-    .featured-info h3 {
-      font-size: 1rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      opacity: 0.8;
-    }
-
-    .featured-info h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .featured-info p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .featured-info .view-project-btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .view-project-btn:hover {
-      background: #3a7ec8;
-    }
-
-    /* -------------------------------------------
-       CONTACT FORM
-    ------------------------------------------- */
-    #contact {
-      padding: 6rem 10%;
-      margin-top: 4rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #contact h2 {
-      font-size: 2.4rem;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-    }
-
-    #contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .input-group {
-      position: relative;
-    }
-
-    .input-group input,
-    .input-group textarea {
-      width: 100%;
-      padding: 1rem;
-      border: none;
-      border-bottom: 2px solid #ccc;
-      background: transparent;
-      font-size: 1.1rem;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    .input-group input:focus,
-    .input-group textarea:focus {
-      border-color: var(--primary-color);
-    }
-
-    .input-group label {
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      font-size: 1.1rem;
-      color: #777;
-      pointer-events: none;
-      transition: all 0.3s ease;
-    }
-
-    .input-group input:focus + label,
-    .input-group input:not(:placeholder-shown) + label,
-    .input-group textarea:focus + label,
-    .input-group textarea:not(:placeholder-shown) + label {
-      top: -0.6rem;
-      font-size: 0.9rem;
-      color: var(--primary-color);
-    }
-
-    .submit-btn {
-      width: 200px;
-      padding: 0.9rem;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      background: #ff4c4c;
-    }
-
-    /* -------------------------------------------
-       FOOTER
-    ------------------------------------------- */
     footer {
       background: #2c3e50;
       padding: 3rem 1rem;
@@ -305,31 +151,42 @@
       color: #bdc3c7;
     }
 
-    /* Fade-in for scroll */
-    .fade-scroll {
+    #image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .fade-image {
+      position: absolute;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 2s ease-in-out;
+      width: 150px;
+      height: auto;
     }
 
-    .fade-scroll.visible {
+    .fade-in {
       opacity: 1;
-      transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2rem;
       }
 
-      .featured-info h2 {
-        font-size: 1.8rem;
-      }
-
       nav ul {
         flex-direction: column;
         gap: 1rem;
+      }
+
+      .footer-links a {
+        display: block;
+        margin: 0.5rem 0;
       }
     }
   </style>
@@ -343,12 +200,11 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>Hi, I'm <span class="highlight">Kiya</span></h1>
@@ -357,63 +213,31 @@
     </div>
   </section>
 
-  <!-- FEATURED WORK -->
-  <section id="featured-work" class="fade-scroll">
-    <h1 class="section-title">Featured Work</h1>
-
-    <div class="featured-container">
-      <img src="your-featured-image.jpg" class="featured-image" alt="Featured Work Image">
-
-      <div class="featured-info">
-        <h3>Case Study</h3>
-        <h2>Project Title Goes Here</h2>
-        <p>
-          Write a 2–3 sentence overview of your most impactful design project.
-          Explain the problem, your approach, and the final outcome.  
-          Ideally, link this to a full case study page to showcase your work.
-        </p>
-
-        <a href="portfolio.html" class="view-project-btn">View Project →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="fade-scroll">
-    <h2>Contact Me</h2>
-
-    <form id="contact-form">
-      <div class="input-group">
-        <input type="text" name="name" required placeholder=" ">
-        <label>Your Name</label>
-      </div>
-
-      <div class="input-group">
-        <input type="email" name="email" required placeholder=" ">
-        <label>Email Address</label>
-      </div>
-
-      <div class="input-group">
-        <textarea name="message" rows="4" required placeholder=" "></textarea>
-        <label>Your Message</label>
-      </div>
-
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </section>
-
-  <!-- IMAGE FADE SYSTEM -->
   <div id="image-container">
-    <!-- Your existing images here (unchanged) -->
+    <img class="fade-image" src="Bakery For TSUG 2024.PNG" alt="Image 1">
+    <img class="fade-image" src="Basketball Scenery 2023.PNG" alt="Image 2">
+    <img class="fade-image" src="Book Drawing 2023.png" alt="Image 3">
+    <img class="fade-image" src="City For TSUG 2024.PNG" alt="Image 4">
+    <img class="fade-image" src="Colored Book 2023.png" alt="Image 5">
+    <img class="fade-image" src="Company logo 2023.PNG" alt="Image 6">
+    <img class="fade-image" src="Cover 8.5 x 11 inch (21.59 x 27.94 cm).pdf" alt="Image 7">
+    <img class="fade-image" src="Light House Drawing 2024.PNG" alt="Image 8">
+    <img class="fade-image" src="Little Red Riding Hood 2024.PNG" alt="Image 9">
+    <img class="fade-image" src="poem3sketch.png" alt="Image 10">
+    <img class="fade-image" src="poem4sketch.png" alt="Image 11">
+    <img class="fade-image" src="poem6sketch.png" alt="Image 12">
+    <img class="fade-image" src="poem7sketch.png" alt="Image 13">
+    <img class="fade-image" src="poem8sketch.png" alt="Image 14">
+    <img class="fade-image" src="poem9sketch.png" alt="Image 15">
+    <img class="fade-image" src="Center Logo.png" alt="Image 16">
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Kiya Grivalsky. All rights reserved.</p>
@@ -421,17 +245,80 @@
   </footer>
 
   <script>
-    /* Scroll Fade-In */
-    const fadeEls = document.querySelectorAll('.fade-scroll');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = document.querySelectorAll(".fade-image");
+      const heroContainer = document.querySelector(".hero");
+      const containerWidth = heroContainer.offsetWidth;
+      const containerHeight = heroContainer.offsetHeight;
+      const imageSize = 150;
+
+      const noGoZone = {
+        xMin: containerWidth / 2 - 200,
+        xMax: containerWidth / 2 + 200,
+        yMin: containerHeight / 2 - 100,
+        yMax: containerHeight / 2 + 100
+      };
+
+      let activePositions = [];
+
+      function isOverlapping(x, y) {
+        return activePositions.some(pos => {
+          const dx = pos.x - x;
+          const dy = pos.y - y;
+          return Math.sqrt(dx * dx + dy * dy) < imageSize;
+        });
+      }
+
+      function isInNoGoZone(x, y) {
+        return x > noGoZone.xMin && x < noGoZone.xMax && y > noGoZone.yMin && y < noGoZone.yMax;
+      }
+
+      function randomPosition() {
+        let attempts = 0;
+        let top, left;
+
+        do {
+          left = Math.random() * (containerWidth - imageSize);
+          top = Math.random() * (containerHeight - imageSize);
+          attempts++;
+        } while (
+          (isInNoGoZone(left, top) || isOverlapping(left, top)) &&
+          attempts < 50
+        );
+
+        activePositions.push({ x: left, y: top });
+        return { top, left };
+      }
+
+      function fadeImages() {
+        const randomCount = Math.floor(Math.random() * 5) + 1;
+        const randomImages = [];
+
+        while (randomImages.length < randomCount) {
+          const randomIndex = Math.floor(Math.random() * images.length);
+          if (!randomImages.includes(images[randomIndex])) {
+            randomImages.push(images[randomIndex]);
+          }
+        }
+
+        activePositions = [];
+
+        randomImages.forEach(img => {
+          const { top, left } = randomPosition();
+          img.style.top = top + "px";
+          img.style.left = left + "px";
+          img.classList.add("fade-in");
+
+          setTimeout(function () {
+            img.classList.remove("fade-in");
+          }, 3000);
+        });
+
+        setTimeout(fadeImages, Math.random() * 2000 + 1000);
+      }
+
+      fadeImages();
     });
-
-    fadeEls.forEach(el => observer.observe(el));
-
-    /* Your existing image fade JS stays unchanged */
   </script>
 
 </body>
