@@ -121,8 +121,13 @@
     }
 
     section {
-      padding: 3rem 10%;
+      padding: 4rem 10%;
       text-align: center;
+      background: var(--bg-color);
+    }
+
+    section:nth-of-type(even) {
+      background: #ffffff;
     }
 
     section h2 {
@@ -132,25 +137,28 @@
     }
 
     .card {
+      max-width: 700px;
+      margin: 0 auto;
       background: white;
       padding: 2rem;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card a {
-      color: var(--accent-color);
-      font-weight: 500;
+      color: var(--primary-color);
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
     .card a:hover {
-      color: #ff4c4c;
+      color: var(--accent-color);
     }
 
     footer {
@@ -221,6 +229,10 @@
         display: block;
         margin: 0.5rem 0;
       }
+
+      section {
+        padding: 3rem 5%;
+      }
     }
   </style>
 </head>
@@ -285,7 +297,7 @@
   <section>
     <h2>Download Resume</h2>
     <div class="card">
-      <a href="Kiya_Grivalsky_Resume.pdf" download>Download My Resume</a>
+      <a href="Grivalsky_Resume25.pdf" download>Download My Resume</a>
     </div>
   </section>
 
@@ -327,8 +339,10 @@
         yMax: containerHeight / 2 + 100
       };
 
-      function isOverlapping(x, y, positions) {
-        return positions.some(pos => {
+      let activePositions = [];
+
+      function isOverlapping(x, y) {
+        return activePositions.some(pos => {
           const dx = pos.x - x;
           const dy = pos.y - y;
           return Math.sqrt(dx * dx + dy * dy) < imageSize;
@@ -339,71 +353,22 @@
         return x > noGoZone.xMin && x < noGoZone.xMax && y > noGoZone.yMin && y < noGoZone.yMax;
       }
 
-      let positions = [];
-      images.forEach(() => {
+      function randomPosition() {
         let attempts = 0;
-        let x, y;
+        let top, left;
+
         do {
-          x = Math.random() * (containerWidth - imageSize);
-          y = Math.random() * (containerHeight - imageSize);
+          left = Math.random() * (containerWidth - imageSize);
+          top = Math.random() * (containerHeight - imageSize);
           attempts++;
-        } while ((isOverlapping(x, y, positions) || isInNoGoZone(x, y)) && attempts < 50);
-        positions.push({ x, y });
-      });
+        } while (
+          (isInNoGoZone(left, top) || isOverlapping(left, top)) &&
+          attempts < 50
+        );
 
-      const floatingImages = images.map((img, index) => {
-        img.style.left = positions[index].x + "px";
-        img.style.top = positions[index].y + "px";
-        return {
-          img,
-          x: positions[index].x,
-          y: positions[index].y,
-          vx: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
-          vy: (Math.random() * 0.5 + 0.1) * (Math.random() < 0.5 ? 1 : -1),
-          amplitudeX: 20 + Math.random() * 30,
-          amplitudeY: 20 + Math.random() * 30,
-          phaseX: Math.random() * Math.PI * 2,
-          phaseY: Math.random() * Math.PI * 2
-        };
-      });
-
-      function animateFloating() {
-        floatingImages.forEach(obj => {
-          obj.x += obj.vx;
-          obj.y += obj.vy;
-
-          if (obj.x < 0 || obj.x > containerWidth - imageSize) obj.vx *= -1;
-          if (obj.y < 0 || obj.y > containerHeight - imageSize) obj.vy *= -1;
-
-          if (isInNoGoZone(obj.x, obj.y)) {
-            obj.vx *= -1;
-            obj.vy *= -1;
-          }
-
-          floatingImages.forEach(other => {
-            if (other !== obj) {
-              const dx = obj.x - other.x;
-              const dy = obj.y - other.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < imageSize) {
-                obj.vx = -obj.vx;
-                obj.vy = -obj.vy;
-              }
-            }
-          });
-
-          const time = Date.now() / 1000;
-          const xOffset = Math.sin(time * obj.vx + obj.phaseX) * obj.amplitudeX;
-          const yOffset = Math.sin(time * obj.vy + obj.phaseY) * obj.amplitudeY;
-          const rotation = Math.sin(time + obj.phaseX) * 5;
-
-          obj.img.style.transform = `translate(${obj.x + xOffset}px, ${obj.y + yOffset}px) rotate(${rotation}deg)`;
-        });
-
-        requestAnimationFrame(animateFloating);
+        activePositions.push({ x: left, y: top });
+        return { top, left };
       }
-
-      animateFloating();
 
       function fadeImages() {
         const randomCount = Math.floor(Math.random() * 5) + 1;
@@ -416,9 +381,17 @@
           }
         }
 
+        activePositions = [];
+
         randomImages.forEach(img => {
+          const { top, left } = randomPosition();
+          img.style.top = top + "px";
+          img.style.left = left + "px";
           img.classList.add("fade-in");
-          setTimeout(() => img.classList.remove("fade-in"), 3000);
+
+          setTimeout(function () {
+            img.classList.remove("fade-in");
+          }, 3000);
         });
 
         setTimeout(fadeImages, Math.random() * 2000 + 1000);
