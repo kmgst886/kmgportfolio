@@ -1,266 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiya Grivalsky | UX/UI Designer</title>
-
-  <!-- Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
 
     :root {
-      --primary-color: #4a90e2;
-      --bg-color: #f4f6f8;
+      --primary-color: #ff6b6b;
+      --secondary-color: #ff9e6b;
+      --accent-color: #ffd36b;
+      --bg-color: #fff0f5;
       --text-color: #2e2e2e;
-      --accent-color: #ff6b6b;
+      --dark-bg: #1e1e1e;
+      --dark-text: #f4f4f4;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Outfit', sans-serif;
-      background: linear-gradient(45deg, #f0f4ff, #ffffff);
+      background: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
-      position: relative;
+      transition: all 0.3s ease;
+      overflow-x: hidden;
     }
+    body.dark { background: var(--dark-bg); color: var(--dark-text); }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 10%;
-      background: white;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 10%; background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
+      transition: background 0.3s;
     }
+    body.dark header { background: #2c2c2c; }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-color);
-    }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.3s; }
+    body.dark nav a { color: var(--dark-text); }
+    nav a:hover, nav a.active { color: var(--primary-color); }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+    .dark-toggle { cursor: pointer; font-size: 1.2rem; }
 
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--primary-color);
-    }
-
-    /* HERO SECTION */
     .hero {
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(to right, #f0f4ff, #ffffff);
-      padding: 0 1rem;
-      position: relative;
-      overflow: hidden;
+      height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: linear-gradient(135deg, #ff6b6b, #ff9e6b, #ffd36b);
+      position: relative; overflow: hidden; color: white;
+    }
+    .hero-content { animation: fadeSlideIn 1.5s ease forwards; opacity: 0; transform: translateY(20px); z-index: 2; }
+    @keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
+    .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero-content .highlight { color: #fff; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; color: #fff; }
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; background-color: var(--dark-bg); color: white; border-radius: 4px; font-weight: 500; text-decoration: none; transition: background 0.3s; }
+    .btn:hover { background-color: var(--text-color); }
+
+    section { padding: 5rem 10%; text-align: center; position: relative; }
+    .section-title { font-size: 2rem; margin-bottom: 2rem; position: relative; }
+    .section-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color); animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+
+    /* Scroll reveal */
+    .slide-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .slide-in.show { opacity: 1; transform: translateY(0); }
+
+    /* Animated blobs */
+    .blob { position: absolute; border-radius: 50%; opacity: 0.4; animation: blobMove 8s infinite alternate; z-index: -1; }
+    .blob1 { width: 300px; height: 300px; background: #ff6b6b; top: -50px; left: -50px; animation-delay: 0s; }
+    .blob2 { width: 400px; height: 400px; background: #ff9e6b; top: 50%; left: 60%; animation-delay: 2s; }
+    .blob3 { width: 250px; height: 250px; background: #ffd36b; top: 70%; left: -20%; animation-delay: 4s; }
+    @keyframes blobMove { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px, -30px) scale(1.1); } 100% { transform: translate(-20px, 20px) scale(0.9); } }
+
+    /* Meet Me / Resume / LinkedIn */
+    .card { background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .card:hover { transform: translateY(-10px); }
+    body.dark .card { background: #2c2c2c; color: var(--dark-text); }
+
+    .card a { color: var(--primary-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .card a:hover { color: var(--accent-color); }
+
+    footer { background: #2c3e50; padding: 3rem 1rem; text-align: center; color: #ecf0f1; margin-top: 4rem; border-top: 1px solid #1a252f; }
+    .footer-links { margin-bottom: 1rem; }
+    .footer-links a { margin: 0 1rem; text-decoration: none; color: #ecf0f1; font-weight: 500; transition: color 0.3s ease, transform 0.3s ease; }
+    .footer-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
+    .footer-bottom { font-size: 0.9rem; color: #bdc3c7; }
+
+    @media (max-width:768px){
+      .hero-content h1{font-size:2rem;}
+      nav ul{flex-direction:column; gap:1rem;}
+      .footer-links a{display:block; margin:0.5rem 0;}
     }
 
-    .hero-content {
-      animation: fadeSlideIn 1.5s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
-      z-index: 2;
-    }
-
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content .highlight {
-      color: var(--primary-color);
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #555;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--accent-color);
-      color: white;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #ff4c4c;
-    }
-
-    /* FLOATING IMAGE CONTAINER */
-    #image-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .fade-image {
-      position: absolute;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-      width: 150px;
-      height: auto;
-    }
-
-    .fade-in {
-      opacity: 1;
-    }
-
-    /* NEW SECTIONS BELOW HERO */
-
-    .section-container {
-      padding: 6rem 10%;
-      text-align: center;
-      position: relative;
-      z-index: 5;
-    }
-
-    .meet-me h2,
-    .linkedin-section h2,
-    .resume-section h2,
-    .quote-section h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      animation: fadeSlideIn 1s ease forwards;
-    }
-
-    .meet-me p,
-    .quote-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 1.5rem;
-    }
-
-    .linkedin-btn,
-    .resume-btn {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.75rem 1.7rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .linkedin-btn:hover,
-    .resume-btn:hover {
-      background: #3a78bd;
-      transform: translateY(-4px);
-    }
-
-    .quote-box {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      margin-top: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      font-style: italic;
-      animation: fadeSlideIn 1s ease forwards;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #2c3e50;
-      padding: 3rem 1rem;
-      text-align: center;
-      color: #ecf0f1;
-      margin-top: 4rem;
-      border-top: 1px solid #1a252f;
-    }
-
-    .footer-columns {
-      display: flex;
-      justify-content: center;
-      gap: 4rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .footer-col h4 {
-      margin-bottom: 1rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .footer-col a {
-      display: block;
-      color: #ecf0f1;
-      text-decoration: none;
-      margin: 0.3rem 0;
-      transition: color 0.3s ease;
-    }
-
-    .footer-col a:hover {
-      color: var(--accent-color);
-    }
-
-    .footer-bottom {
-      font-size: 0.9rem;
-      color: #bdc3c7;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
   </style>
 </head>
-
 <body>
 
+  <!-- Blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- Header -->
   <header>
     <div class="logo">Kiya Grivalsky</div>
     <nav>
@@ -271,9 +115,10 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="dark-toggle"><i class="fas fa-moon"></i></div>
   </header>
 
-  <!-- HERO -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h1>Hi, I'm <span class="highlight">Kiya</span></h1>
@@ -282,152 +127,80 @@
     </div>
   </section>
 
-  <!-- FLOATING IMAGES -->
-  <div id="image-container">
-    <!-- your images unchanged -->
-    <!-- ... your image tags here ... -->
-  </div>
-
-
-  <!-- 🌟 NEW MEET ME SECTION -->
-  <section class="section-container meet-me">
-    <h2>Meet Me</h2>
-    <p>I'm Kiya, a passionate UX/UI designer focused on creating intuitive digital experiences. I love combining visual design, storytelling, and user psychology to craft meaningful interactions and elevate user journeys. Outside of design, I enjoy illustrating, exploring creative worlds, and diving into unique projects that challenge my perspective.</p>
-  </section>
-
-  <!-- 🌐 NEW LINKEDIN SECTION -->
-  <section class="section-container linkedin-section">
-    <h2>Connect With Me</h2>
-    <p>Let’s grow our professional networks — feel free to connect!</p>
-    <a href="https://www.linkedin.com/" target="_blank" class="linkedin-btn">Visit My LinkedIn</a>
-  </section>
-
-  <!-- 📄 NEW RESUME DOWNLOAD SECTION -->
-  <section class="section-container resume-section">
-    <h2>Download My Résumé</h2>
-    <p>Looking to learn more about my skills, experience, and education?</p>
-    <a href="resume.pdf" download class="resume-btn">Download Résumé</a>
-  </section>
-
-  <!-- 💬 NEW INSPIRATIONAL QUOTE SECTION -->
-  <section class="section-container quote-section">
-    <h2>Quote I Live By</h2>
-    <div class="quote-box">
-      <p>"Design is intelligence made visible."</p>
-      <p>— Alina Wheeler</p>
+  <!-- Meet Me Section -->
+  <section class="slide-in">
+    <div class="section-icon"><i class="fas fa-user"></i></div>
+    <h2 class="section-title">Meet Me</h2>
+    <div class="card">
+      <p>Hello! I'm Kiya, a passionate UX/UI designer who loves turning complex problems into elegant, user-friendly designs. I enjoy collaborating, sketching ideas, and building interfaces that delight users.</p>
     </div>
   </section>
 
+  <!-- LinkedIn Section -->
+  <section class="slide-in">
+    <div class="section-icon"><i class="fab fa-linkedin"></i></div>
+    <h2 class="section-title">Connect on LinkedIn</h2>
+    <div class="card">
+      <a href="https://www.linkedin.com/in/kiyagrivalsky" target="_blank">View My LinkedIn Profile</a>
+    </div>
+  </section>
 
-  <!-- ⭐ UPDATED FOOTER WITH MORE INFO -->
+  <!-- Resume Download Section -->
+  <section class="slide-in">
+    <div class="section-icon"><i class="fas fa-file-download"></i></div>
+    <h2 class="section-title">Download Resume</h2>
+    <div class="card">
+      <a href="Kiya_Grivalsky_Resume.pdf" download>Download My Resume</a>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="slide-in">
+    <div class="section-icon"><i class="fas fa-quote-left"></i></div>
+    <h2 class="section-title">Favorite Quote</h2>
+    <div class="card">
+      <p>"Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <div class="footer-columns">
-
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:kiyagrivalsky@gmail.com">kiyagrivalsky@gmail.com</a>
-        <a href="tel:+10000000000">+1 (000) 000-0000</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Social</h4>
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="#">Dribbble</a>
-        <a href="#">Behance</a>
-      </div>
-
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/kiyagrivalsky" target="_blank">LinkedIn</a>
+      <a href="Kiya_Grivalsky_Resume.pdf" download>Resume</a>
     </div>
-
     <div class="footer-bottom">
-      <p>© 2025 Kiya Grivalsky. Designed & coded by Kiya.</p>
+      <p>© 2025 Kiya Grivalsky. All rights reserved.</p>
     </div>
   </footer>
 
-
-  <!-- FLOATING IMAGE SCRIPT (UNCHANGED) -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const images = document.querySelectorAll(".fade-image");
-      const heroContainer = document.querySelector(".hero");
-      const containerWidth = heroContainer.offsetWidth;
-      const containerHeight = heroContainer.offsetHeight;
-      const imageSize = 150;
-
-      const noGoZone = {
-        xMin: containerWidth / 2 - 200,
-        xMax: containerWidth / 2 + 200,
-        yMin: containerHeight / 2 - 100,
-        yMax: containerHeight / 2 + 100
-      };
-
-      let activePositions = [];
-
-      function isOverlapping(x, y) {
-        return activePositions.some(pos => {
-          const dx = pos.x - x;
-          const dy = pos.y - y;
-          return Math.sqrt(dx * dx + dy * dy) < imageSize;
-        });
-      }
-
-      function isInNoGoZone(x, y) {
-        return x > noGoZone.xMin && x < noGoZone.xMax && y > noGoZone.yMin && y < noGoZone.yMax;
-      }
-
-      function randomPosition() {
-        let attempts = 0;
-        let top, left;
-
-        do {
-          left = Math.random() * (containerWidth - imageSize);
-          top = Math.random() * (containerHeight - imageSize);
-          attempts++;
-        } while (
-          (isInNoGoZone(left, top) || isOverlapping(left, top)) &&
-          attempts < 50
-        );
-
-        activePositions.push({ x: left, y: top });
-        return { top, left };
-      }
-
-      function fadeImages() {
-        const randomCount = Math.floor(Math.random() * 5) + 1;
-        const randomImages = [];
-
-        while (randomImages.length < randomCount) {
-          const randomIndex = Math.floor(Math.random() * images.length);
-          if (!randomImages.includes(images[randomIndex])) {
-            randomImages.push(images[randomIndex]);
-          }
-        }
-
-        activePositions = [];
-
-        randomImages.forEach(img => {
-          const { top, left } = randomPosition();
-          img.style.top = top + "px";
-          img.style.left = left + "px";
-          img.classList.add("fade-in");
-
-          setTimeout(function () {
-            img.classList.remove("fade-in");
-          }, 3000);
-        });
-
-        setTimeout(fadeImages, Math.random() * 2000 + 1000);
-      }
-
-      fadeImages();
+    // Dark mode toggle
+    const toggle = document.querySelector('.dark-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const icon = toggle.querySelector('i');
+      icon.classList.toggle('fa-moon');
+      icon.classList.toggle('fa-sun');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
     });
+    if(localStorage.getItem('dark-mode') === 'true'){ document.body.classList.add('dark'); toggle.querySelector('i').classList.replace('fa-moon','fa-sun'); }
+
+    // Scroll reveal
+    const slideElements = document.querySelectorAll('.slide-in');
+    function revealOnScroll(){
+      const triggerBottom = window.innerHeight * 0.85;
+      slideElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < triggerBottom){ el.classList.add('show'); }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
   </script>
 
 </body>
