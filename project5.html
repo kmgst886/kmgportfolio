@@ -28,6 +28,30 @@
     .footer-links a { margin:0 1rem; text-decoration:none; color:#ecf0f1; font-weight:500; transition:0.3s;}
     .footer-links a:hover { color:var(--accent-color);}
     .footer-bottom { font-size:0.9rem; color:#bdc3c7;}
+
+    /* Scroll Arrows */
+    .scroll-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      font-size: 2.5rem;
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+    .scroll-arrow-left { left: 10px; }
+    .scroll-arrow-right { right: 10px; }
+    .scroll-arrow span { font-size:0.9rem; margin-top:0.5rem; text-transform:capitalize;}
+    .scroll-arrow:hover { background-color: var(--accent-color);}
   </style>
 </head>
 <body>
@@ -69,6 +93,16 @@
     <p>Planning to develop a full playable mobile prototype and eventually release it on app stores.</p>
   </div>
 
+</div>
+
+<!-- Scroll Arrows -->
+<div class="scroll-arrow scroll-arrow-left" onclick="window.location.href='project4.html';">
+  &#8592;
+  <span>Project 4</span>
+</div>
+<div class="scroll-arrow scroll-arrow-right" onclick="window.location.href='project6.html';">
+  &#8594;
+  <span>Project 6</span>
 </div>
 
 <footer>
