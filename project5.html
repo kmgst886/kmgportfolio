@@ -3,35 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project 5 | Shipping Craze (Mobile) | Kiya Grivalsky</title>
+  <title>Mobile Shipping Craze | Kiya Grivalsky</title>
   <style>
     :root {
-      --primary-color: #f77f00;
-      --secondary-color: #fcbf49;
-      --bg-color: #fefae0;
-      --text-color: #3d3d3d;
-      --accent-color: #d62828;
+      --primary-color: #ff6f61;
+      --secondary-color: #ffb347;
+      --bg-color: #fff7f0;
+      --text-color: #2e2e2e;
+      --accent-color: #ff3f3f;
     }
-    body { font-family: 'Comic Sans MS','Outfit',sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: var(--primary-color); }
-    .container { max-width: 960px; margin: 2rem auto; padding: 2rem; background-color: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    h2 { color: var(--primary-color); border-bottom: 3px dashed var(--accent-color); padding-bottom: 0.5rem; margin-bottom: 1rem; }
-    p { line-height: 1.6; }
-    .cover-image, .image-block img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem; }
-    .center-align { text-align: center; }
-    .image-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .image-thumb { flex: 1 1 200px; max-width: 200px; display: flex; justify-content: center; align-items: center; }
-    .image-thumb img { width: 100%; height: auto; object-fit: contain; }
-    .section { margin-bottom: 2rem; }
-    footer { background: #2c3e50; padding: 3rem 1rem; text-align: center; color: #ecf0f1; margin-top: 4rem; border-top: 1px solid #1a252f; }
-    .footer-links { margin-bottom: 1rem; }
-    .footer-links a { margin: 0 1rem; text-decoration: none; color: #ecf0f1; font-weight: 500; transition: color 0.3s ease, transform 0.3s ease; }
-    .footer-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
-    .footer-bottom { font-size: 0.9rem; color: #bdc3c7; }
+    body { font-family: 'Outfit', sans-serif; margin:0; padding:0; background:var(--bg-color); color:var(--text-color);}
+    header { display:flex; justify-content:space-between; align-items:center; padding:1rem 10%; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.05); position:sticky; top:0; z-index:100;}
+    .logo { font-weight:700; font-size:1.5rem; color:var(--primary-color);}
+    nav ul { list-style:none; display:flex; gap:1rem; }
+    nav a { text-decoration:none; color:var(--text-color); font-weight:500; }
+    nav a:hover, nav a.active { color:var(--primary-color); }
+    .container { max-width:900px; margin:2rem auto; padding:2rem; background:white; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    h2 { color:var(--primary-color); margin-bottom:1rem;}
+    p { line-height:1.6;}
+    .cover-image, .image-block img { width:100%; border-radius:8px; margin-bottom:1rem;}
+    .section { margin-bottom:2rem; }
+    footer { background:#2c3e50; padding:3rem 1rem; text-align:center; color:#ecf0f1; margin-top:4rem; border-top:1px solid #1a252f;}
+    .footer-links { margin-bottom:1rem;}
+    .footer-links a { margin:0 1rem; text-decoration:none; color:#ecf0f1; font-weight:500; transition:0.3s;}
+    .footer-links a:hover { color:var(--accent-color);}
+    .footer-bottom { font-size:0.9rem; color:#bdc3c7;}
   </style>
 </head>
 <body>
@@ -42,7 +38,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -51,28 +47,26 @@
 <div class="container">
 
   <div class="section">
-    <h2>Project 5: <em>Shipping Craze (Mobile)</em></h2>
-    <img class="cover-image" src="path/to/shipping-craze-cover.jpg" alt="Shipping Craze Cover">
-    <p><strong>Type:</strong> Mobile Game Prototype</p>
-    <p><strong>Description:</strong> Shipping Craze is a fast-paced mobile game where players manage shipping logistics and solve challenges creatively. I focused on the mobile UI, concept art, and level design.</p>
+    <h2>Project: Mobile Version of Shipping Craze</h2>
+    <img class="cover-image" src="mobile_shipping_craze.png" alt="Shipping Craze Mobile Version">
+    <p><strong>Type:</strong> Mobile Game Concept</p>
+    <p><strong>Description:</strong> A mobile adaptation of the board game Shipping Craze. Redesigned UI and mechanics to fit mobile screens while keeping the strategic gameplay intact.</p>
   </div>
 
   <div class="section">
-    <h2>Key Visuals / Screenshots</h2>
-    <div class="image-grid">
-      <div class="image-thumb"><img src="path/to/screenshot1.jpg" alt="Screenshot 1"></div>
-      <div class="image-thumb"><img src="path/to/screenshot2.jpg" alt="Screenshot 2"></div>
-    </div>
+    <h2>Gameplay Screenshots</h2>
+    <img src="mobile_gameplay1.png" alt="Gameplay Screenshot 1">
+    <img src="mobile_gameplay2.png" alt="Gameplay Screenshot 2">
   </div>
 
   <div class="section">
     <h2>Creative Process</h2>
-    <p>I developed wireframes, character designs, and gameplay flows using Procreate and Unity. Iterations focused on clarity, color contrast, and intuitive mobile interaction.</p>
+    <p>Started with wireframes, then iterated designs in Figma. Implemented touch-friendly interactions and simplified rules for mobile users. Conducted playtesting to refine user experience.</p>
   </div>
 
   <div class="section">
-    <h2>What's Next?</h2>
-    <p>Planning to expand this prototype into a full mobile game with additional levels, sound design, and interactive tutorials.</p>
+    <h2>Next Steps</h2>
+    <p>Planning to develop a full playable mobile prototype and eventually release it on app stores.</p>
   </div>
 
 </div>
