@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clay Armature Model | Kiya Grivalsky</title>
+<style>
+  :root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #ffe66d;
+    --bg-color: #fff5f5;
+    --text-color: #2d2d2d;
+    --accent-color: #c70039;
+  }
+  body { font-family:'Outfit', sans-serif; margin:0; padding:0; background:var(--bg-color); color:var(--text-color);}
+  header { display:flex; justify-content:space-between; align-items:center; padding:1rem 10%; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.05); position:sticky; top:0; z-index:100;}
+  .logo { font-weight:700; font-size:1.5rem; color:var(--primary-color);}
+  nav ul { list-style:none; display:flex; gap:1rem; }
+  nav a { text-decoration:none; color:var(--text-color); font-weight:500; }
+  nav a:hover, nav a.active { color:var(--primary-color); }
+  .container { max-width:900px; margin:2rem auto; padding:2rem; background:white; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+  h2 { color:var(--primary-color); margin-bottom:1rem;}
+  p { line-height:1.6;}
+  .cover-image, .image-block img { width:100%; border-radius:8px; margin-bottom:1rem;}
+  .section { margin-bottom:2rem; }
+  footer { background:#2d2d2d; padding:3rem 1rem; text-align:center; color:#fff; margin-top:4rem; border-top:1px solid #1a1a1a;}
+  .footer-links { margin-bottom:1rem;}
+  .footer-links a { margin:0 1rem; text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}
+  .footer-links a:hover { color:var(--accent-color);}
+  .footer-bottom { font-size:0.9rem; color:#ccc;}
+  .scroll-arrow { position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; font-size: 2.5rem; padding: 1rem; border-radius: 50%; background-color: var(--primary-color); color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;}
+  .scroll-arrow-left { left: 10px; }
+  .scroll-arrow-right { right: 10px; }
+  .scroll-arrow span { font-size:0.9rem; margin-top:0.5rem; text-transform:capitalize;}
+  .scroll-arrow:hover { background-color: var(--accent-color);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Kiya Grivalsky</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="section">
+    <h2>Project: Clay Armature Model</h2>
+    <img class="cover-image" src="clay_armature_cover.png" alt="Clay Armature Model">
+    <p><strong>Type:</strong> Sculpture / Stop-Motion Armature</p>
+    <p><strong>Description:</strong> A detailed clay armature model used in stop-motion animation, designed with full articulation for smooth motion capture and expressive poses.</p>
+  </div>
+  <div class="section">
+    <h2>Photos & Details</h2>
+    <img src="clay_model1.png" alt="Armature 1">
+    <img src="clay_model2.png" alt="Armature 2">
+  </div>
+  <div class="section">
+    <h2>Creative Process</h2>
+    <p>Crafted wire skeleton, sculpted clay body, and tested joint movements to ensure fluid animation potential.</p>
+  </div>
+</div>
+
+<div class="scroll-arrow scroll-arrow-left" onclick="window.location.href='project10.html';">
+  &#8592;<span>Project 10</span>
+</div>
+<div class="scroll-arrow scroll-arrow-right" onclick="window.location.href='project12.html';">
+  &#8594;<span>Project 12</span>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Kiya Grivalsky. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
