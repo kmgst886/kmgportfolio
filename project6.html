@@ -12,8 +12,24 @@
       --text-color: #023047;
       --accent-color: #0077b6;
     }
-    body { font-family:'Outfit', sans-serif; margin:0; padding:0; background:var(--bg-color); color:var(--text-color);}
-    header { display:flex; justify-content:space-between; align-items:center; padding:1rem 10%; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.05); position:sticky; top:0; z-index:100;}
+    body { 
+      font-family:'Outfit', sans-serif; 
+      margin:0; 
+      padding:0; 
+      background:var(--bg-color); 
+      color:var(--text-color);
+    }
+    header { 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      padding:1rem 10%; 
+      background:white; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.05); 
+      position:sticky; 
+      top:0; 
+      z-index:100;
+    }
     .logo { font-weight:700; font-size:1.5rem; color:var(--primary-color);}
     nav ul { list-style:none; display:flex; gap:1rem; }
     nav a { text-decoration:none; color:var(--text-color); font-weight:500; }
@@ -23,6 +39,13 @@
     p { line-height:1.6;}
     .cover-image, .image-block img { width:100%; border-radius:8px; margin-bottom:1rem;}
     .section { margin-bottom:2rem; }
+    hr { 
+      border: none;
+      height: 2px;
+      background-color: var(--primary-color);
+      margin: 2rem 0; 
+      border-radius: 1px;
+    }
     footer { background:#023047; padding:3rem 1rem; text-align:center; color:#ecf0f1; margin-top:4rem; border-top:1px solid #012a36;}
     .footer-links { margin-bottom:1rem;}
     .footer-links a { margin:0 1rem; text-decoration:none; color:#ecf0f1; font-weight:500; transition:0.3s;}
@@ -30,7 +53,8 @@
     .footer-bottom { font-size:0.9rem; color:#90e0ef;}
 
     .scroll-arrow {
-      position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; font-size: 2.5rem; padding: 1rem; border-radius: 50%; background-color: var(--primary-color); color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;}
+      position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; font-size: 2.5rem; padding: 1rem; border-radius: 50%; background-color: var(--primary-color); color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;
+    }
     .scroll-arrow-left { left: 10px; }
     .scroll-arrow-right { right: 10px; }
     .scroll-arrow span { font-size:0.9rem; margin-top:0.5rem; text-transform:capitalize;}
@@ -58,11 +82,17 @@
     <p><strong>Type:</strong> Illustration / Story Concept</p>
     <p><strong>Description:</strong> A mystical underwater world where whispers guide an explorer through hidden secrets of the deep sea. Explores themes of curiosity and bravery.</p>
   </div>
+
+  <hr>
+
   <div class="section">
     <h2>Artwork Samples</h2>
     <img src="wave_art1.png" alt="Sample Artwork 1">
     <img src="wave_art2.png" alt="Sample Artwork 2">
   </div>
+
+  <hr>
+
   <div class="section">
     <h2>Purchase the Book</h2>
     <p><strong>Whispers Beneath The Waves (The Lightkeeper Chronicles) Paperback – November 5, 2025</strong></p>
@@ -70,11 +100,15 @@
     <p>After the creature is locked away, the lighthouse keeper tries to move on—but strange things start happening again. When a charming new visitor arrives offering help, the town quickly embraces them. Only the lightkeeper is unsure. As more people begin to vanish, he must learn to trust his instincts—even when everyone else won’t.</p>
     <p>Sometimes, a real friend tells the truth, even when it’s hard to hear. This story helps kids understand that true friends don’t always say what you want to hear. It also shows that trust should be based on actions over time, not just on appearances or charm.</p>
     <p>The imprisoned creature may not have been the real enemy—and the new "friend" may be something much worse.</p>
-    <p><a href="https://www.amazon.com/gp/product/B0G18W1HPP?ref_=dbs_m_mng_rwt_calw_tpbk_1&storeType=ebooks&qid=1763556304&sr=8-1" target="_blank" style="color:var(--primary-color); font-weight:600; text-decoration:underline;">Buy on Amazon</a></p>
+    <p>Print length: 69 pages | Reading age: Baby - 12 years</p>
+    <p><a href="https://www.amazon.com/gp/product/B0G18W1HPP?ref_=dbs_m_mng_rwt_calw_tpbk_1&storeType=ebooks&qid=1763556304&sr=8-1" target="_blank" style="color:var(--primary-color); font-weight:500; text-decoration:underline;">Buy on Amazon</a></p>
   </div>
+
+  <hr>
+
   <div class="section">
     <h2>Next Steps</h2>
-    <p>Finalizing storyboards and preparing animations to bring the underwater whispers to life in a short film concept.</p>
+    <p>Illustrating Book 3 and getting that published, and possibly continuing with my series.</p>
   </div>
 </div>
 
