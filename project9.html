@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arcade Machine: Treasure Pleasure | Kiya Grivalsky</title>
+
 <style>
   :root {
     --primary-color: #ff9f1c;
@@ -12,28 +13,82 @@
     --text-color: #073b4c;
     --accent-color: #ff1654;
   }
-  body { font-family:'Outfit', sans-serif; margin:0; padding:0; background:var(--bg-color); color:var(--text-color);}
-  header { display:flex; justify-content:space-between; align-items:center; padding:1rem 10%; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.05); position:sticky; top:0; z-index:100;}
-  .logo { font-weight:700; font-size:1.5rem; color:var(--primary-color);}
+
+  body {
+    font-family:'Outfit', sans-serif;
+    margin:0; padding:0;
+    background:var(--bg-color);
+    color:var(--text-color);
+  }
+
+  header {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1rem 10%;
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+    position:sticky; top:0; z-index:100;
+  }
+
+  .logo { font-weight:700; font-size:1.5rem; color:var(--primary-color); }
+
   nav ul { list-style:none; display:flex; gap:1rem; }
   nav a { text-decoration:none; color:var(--text-color); font-weight:500; }
   nav a:hover, nav a.active { color:var(--primary-color); }
-  .container { max-width:900px; margin:2rem auto; padding:2rem; background:white; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-  h2 { color:var(--primary-color); margin-bottom:1rem;}
-  p { line-height:1.6; margin-bottom:1rem;}
-  .cover-image, .image-block img { width:100%; border-radius:8px; margin-bottom:1rem;}
+
+  .container {
+    max-width:900px; margin:2rem auto; padding:2rem;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  h2 { color:var(--primary-color); margin-bottom:1rem; }
+  p { line-height:1.6; margin-bottom:1rem; }
   .section { margin-bottom:2rem; }
-  hr { border: none; height: 2px; background-color: var(--primary-color); margin: 2rem 0; border-radius:1px; }
-  footer { background:#073b4c; padding:3rem 1rem; text-align:center; color:#fff; margin-top:4rem; border-top:1px solid #022b3a;}
-  .footer-links { margin-bottom:1rem;}
-  .footer-links a { margin:0 1rem; text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}
-  .footer-links a:hover { color:var(--accent-color);}
-  .footer-bottom { font-size:0.9rem; color:#a0c4c4;}
-  .scroll-arrow { position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; font-size: 2.5rem; padding: 1rem; border-radius: 50%; background-color: var(--primary-color); color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;}
+
+  /* UNIVERSAL AUTO-FIT FOR ALL IMAGES */
+  .cover-image, 
+  .section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 600px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  hr {
+    border: none; height: 2px;
+    background-color: var(--primary-color);
+    margin: 2rem 0;
+  }
+
+  footer {
+    background:#073b4c; padding:3rem 1rem;
+    text-align:center; color:#fff;
+    margin-top:4rem; border-top:1px solid #022b3a;
+  }
+
+  .footer-links a {
+    margin:0 1rem; text-decoration:none; color:#fff;
+    font-weight:500; transition:0.3s;
+  }
+  .footer-links a:hover { color:var(--accent-color); }
+
+  .scroll-arrow {
+    position: fixed; top:50%; transform:translateY(-50%);
+    z-index:1000;
+    font-size:2.5rem; padding:1rem; border-radius:50%;
+    background-color:var(--primary-color); color:#fff;
+    cursor:pointer; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    transition:0.3s;
+  }
   .scroll-arrow-left { left: 10px; }
   .scroll-arrow-right { right: 10px; }
-  .scroll-arrow span { font-size:0.9rem; margin-top:0.5rem; text-transform:capitalize;}
-  .scroll-arrow:hover { background-color: var(--accent-color);}
+  .scroll-arrow:hover { background:var(--accent-color); }
+  .scroll-arrow span { font-size:0.9rem; margin-top:0.5rem; }
 </style>
 </head>
 <body>
@@ -52,12 +107,12 @@
 
 <div class="container">
 
-  <!-- Cover Image at the Top with Project Info -->
+  <!-- Cover -->
   <div class="section">
     <h2>Project: Treasure Pleasure</h2>
     <img class="cover-image" src="TP final.png" alt="Treasure Pleasure">
     <p><strong>Type:</strong> Physical Arcade Machine / Interactive Game</p>
-    <p><strong>Description:</strong> This project documents the creation of a physical arcade machine from concept sketches to a fully built, playable game. Combines interactive design, woodworking, painting, wiring, and game development for a retro-style, hands-on gaming experience.</p>
+    <p><strong>Description:</strong> This project documents the creation of a physical arcade machine from concept sketches to a fully built, playable game.</p>
   </div>
 
   <hr>
@@ -65,115 +120,142 @@
   <!-- 01 Overview -->
   <div class="section">
     <h2>Overview</h2>
-    <p>The arcade machine, "Treasure Pleasure," is designed for immersive, hands-on engagement. The process blends interactive design, physical construction, and gameplay development.</p>
+    <img src="TP_overview1.png" alt="">
+    <img src="TP_overview2.png" alt="">
+    <p>The arcade machine blends interactive design and physical construction into one cohesive experience.</p>
   </div>
 
   <!-- 02 Project Summary -->
   <div class="section">
     <h2>Project Summary</h2>
-    <p>The project included concept sketches, side panel design, hardware assembly, painting, wiring, game development, and exhibition setup. The arcade machine emphasizes retro aesthetics and engaging gameplay.</p>
+    <img src="TP_summary1.png" alt="">
+    <p>Includes concept art, sketching, panel design, wiring, woodworking, gameplay development, and exhibit setup.</p>
   </div>
 
   <!-- 03 Original Game Idea -->
   <div class="section">
     <h2>Original Game Idea</h2>
-    <p>The original concept centered on a treasure-hunting arcade game with simple mechanics, fun rewards, and vibrant visuals. Gameplay emphasized fast reflexes and player exploration.</p>
+    <img src="TP_idea1.png" alt="">
+    <img src="TP_idea2.png" alt="">
+    <p>The early idea featured a simple treasure-hunting reflex game with neon visuals.</p>
   </div>
 
   <!-- 04 Concept Sketches -->
   <div class="section">
     <h2>Concept Sketches</h2>
-    <p>Early sketches explored cabinet design, side panels, button layouts, and potential game visuals. These served as a visual roadmap for construction and painting.</p>
+    <img src="TP_sketch1.png" alt="">
+    <img src="TP_sketch2.png" alt="">
+    <p>Sketches explored cabinet shape, button layout, and theme direction.</p>
   </div>
 
   <!-- 05 Field Trips -->
   <div class="section">
     <h2>Field Trips</h2>
-    <p>Visits to arcade halls and gaming museums provided insight into player interaction, ergonomic design, and lighting effects that enhance arcade experience.</p>
+    <img src="TP_fieldtrip1.png" alt="">
+    <p>Arcade visits helped refine ergonomics and user interaction details.</p>
   </div>
 
-  <!-- 06 Project Proposal -->
+  <!-- 06 Proposal -->
   <div class="section">
     <h2>Project Proposal</h2>
-    <p>The proposal outlined project goals, budget, materials, and timeline, emphasizing both construction and gameplay development.</p>
+    <img src="TP_proposal.png" alt="">
+    <p>Outlined goals, materials, timeline, and visual direction.</p>
   </div>
 
-  <!-- 07 Sketching Side Panels -->
+  <!-- 07 Sketching Panels -->
   <div class="section">
     <h2>Sketching Side Panels</h2>
-    <p>Designing side panels involved iterative sketching and color tests to create visually striking neon artwork that would glow under exhibition lighting.</p>
+    <img src="TP_panels1.png" alt="">
+    <img src="TP_panels2.png" alt="">
+    <p>Side panel artwork was built from neon-heavy sketches.</p>
   </div>
 
   <!-- 08 Beginning Construction -->
   <div class="section">
     <h2>Beginning Construction</h2>
-    <p>Started with cutting and assembling the wooden frame, ensuring structural stability and planning for future hardware and controls.</p>
+    <img src="TP_build1.png" alt="">
+    <p>Initial wood cutting and structural assembly began the cabinet build.</p>
   </div>
 
   <!-- 09 Starting to Assemble -->
   <div class="section">
     <h2>Starting to Assemble</h2>
-    <p>Mounted side panels and began integrating internal supports. Early assembly focused on aligning panels, buttons, and screen placement.</p>
+    <img src="TP_assemble1.png" alt="">
+    <img src="TP_assemble2.png" alt="">
+    <p>Panels, supports, screen placement, and joinery were aligned.</p>
   </div>
 
   <!-- 10 Piecing It Together -->
   <div class="section">
     <h2>Piecing It Together</h2>
-    <p>Combined structural elements, hardware mounts, and preliminary wiring. Adjustments ensured proper fit and functional design for the interactive game.</p>
+    <img src="TP_together1.png" alt="">
+    <p>Hardware mounts and wiring channels were integrated.</p>
   </div>
 
   <!-- 11 Carpet Design -->
   <div class="section">
     <h2>Carpet Design</h2>
-    <p>Designed and installed custom flooring beneath the arcade machine for aesthetic cohesion and enhanced exhibition presence.</p>
+    <img src="TP_carpet.png" alt="">
+    <p>A custom neon-pattern arcade carpet complemented the cabinet.</p>
   </div>
 
-  <!-- 12 Painting the Machine -->
+  <!-- 12 Painting -->
   <div class="section">
     <h2>Painting the Machine</h2>
-    <p>Primed panels and applied neon paint layers. Techniques emphasized smooth gradients and sharp contrast to highlight the cabinet under lights.</p>
+    <img src="TP_paint1.png" alt="">
+    <img src="TP_paint2.png" alt="">
+    <p>Neon gradients and glowing outlines created a blacklight-reactive finish.</p>
   </div>
 
-  <!-- 13 Adding In Controls -->
+  <!-- 13 Controls -->
   <div class="section">
     <h2>Adding In Controls</h2>
-    <p>Installed buttons, joysticks, and wiring, ensuring responsive gameplay and durable construction for repeated interaction.</p>
+    <img src="TP_controls1.png" alt="">
+    <p>Joystick and button integration with wiring harnesses completed input assembly.</p>
   </div>
 
   <!-- 14 Making the Game -->
   <div class="section">
     <h2>Making the Game</h2>
-    <p>Developed the interactive game mechanics, levels, scoring system, and visual effects. Prototyped in software to integrate seamlessly with the arcade machine controls.</p>
+    <img src="TP_gamebuild1.png" alt="">
+    <img src="TP_gamebuild2.png" alt="">
+    <p>Game mechanics, scoring, and animation were prototyped for cabinet play.</p>
   </div>
 
-  <!-- 15 Game Idea Pivot -->
+  <!-- 15 Pivot -->
   <div class="section">
     <h2>Game Idea Pivot</h2>
-    <p>Adjusted gameplay based on testing, refining levels and mechanics for better player engagement and enjoyment.</p>
+    <img src="TP_pivot1.png" alt="">
+    <p>Based on testing, mechanics were improved for fast-paced, rewarding play.</p>
   </div>
 
-  <!-- 16 Final Game Design -->
+  <!-- 16 Final Game -->
   <div class="section">
     <h2>Final Game Design</h2>
-    <p>The finalized game incorporated polished visuals, responsive controls, and cohesive mechanics, fully compatible with the physical arcade cabinet.</p>
+    <img src="TP_finalgame1.png" alt="">
+    <p>Final gameplay featured polished art, sound, and responsive controls.</p>
   </div>
 
   <!-- 17 Final Machine -->
   <div class="section">
     <h2>Final Machine</h2>
-    <p>Completed assembly, painting, wiring, and installation of the game. The neon side panels, responsive controls, and smooth gameplay resulted in a fully interactive, visually striking arcade machine ready for players.</p>
+    <img src="TP_finalmachine1.png" alt="">
+    <img src="TP_finalmachine2.png" alt="">
+    <p>The completed arcade machine stood fully functional with glowing neon panels.</p>
   </div>
 
-  <!-- 18 Exhibition Setup: Black Lights & Stool -->
+  <!-- 18 Exhibition -->
   <div class="section">
     <h2>Exhibition Setup: Black Lights & Stool</h2>
-    <p>Displayed under black lights with a custom stool for immersion. Lighting enhanced neon colors, highlighting the hand-painted panels and creating an engaging player experience.</p>
+    <img src="TP_exhibit1.png" alt="">
+    <p>Displayed under UV light with a themed stool for full immersion.</p>
   </div>
 
   <!-- 19 Reflection -->
   <div class="section">
     <h2>Reflection</h2>
-    <p>Through this project, learned hands-on skills in woodworking, electronics, painting, and game design. Combining physical construction with interactive gameplay provided deep insight into iterative creative processes.</p>
+    <img src="TP_reflection1.png" alt="">
+    <p>A deep exploration of woodworking, electronics, painting, and game development.</p>
   </div>
 
 </div>
@@ -181,6 +263,7 @@
 <div class="scroll-arrow scroll-arrow-left" onclick="window.location.href='project8.html';">
   &#8592;<span>Project 8</span>
 </div>
+
 <div class="scroll-arrow scroll-arrow-right" onclick="window.location.href='project10.html';">
   &#8594;<span>Project 10</span>
 </div>
